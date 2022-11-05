@@ -9,11 +9,12 @@ LIBFT				:= $(LIBFT_PATH)/libft.a
 MINILIBX_PATH		:= $(LIBS)/minilibx
 MINILIBX			:= $(MINILIBX_PATH)/libmlx.a
 
-SOURCE_DIRS			:= . tuple
+SOURCE_DIRS			:= . tuple canvas
 SOURCE_PATH			:= $(addprefix ./sources/, $(SOURCE_DIRS))
 SOURCE_FILES		:= main.c
 SOURCE_FILES		+= tuple_constructors.c tuple_checkers.c tuple_operations.c
-SOURCE_FILES		+= tuple_manipulators.c
+SOURCE_FILES		+= tuple_manipulators.c canvas_constructor.c canvas_destructor.c
+SOURCE_FILES		+= write_to_canvas.c
 
 OBJECT_PATH			:= ./objects
 OBJECT_FILES		:= $(SOURCE_FILES:%.c=$(OBJECT_PATH)/%.o)
@@ -22,6 +23,7 @@ CC					:= cc
 CFLAGS				:= -Wall -Wextra -Werror
 IFLAGS				:= -I $(HEADER_PATH)
 IFLAGS				+= -I $(LIBFT_PATH)/includes
+IFLAGS				+= -I $(MINILIBX_PATH)/includes
 LDFLAGS				:= -L $(LIBFT_PATH) -lft
 LDFLAGS				+= -L $(MINILIBX_PATH) -lmlx -lXext -lX11 -lm
 REMOVE				:= rm -rf

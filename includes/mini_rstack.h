@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 13:01:43 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 13:37:42 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <internals.h>
 
-/************************************* TUPLE **********************************/
+/************************************ TUPLE ***********************************/
 
 /* Tuple constructors */
 t_tuple		create_tuple(double x, double y, double z, double w);
@@ -41,5 +41,12 @@ double		dot_product(t_tuple a, t_tuple b);
 double		magnitude(t_tuple t);
 t_tuple		normalize(t_tuple t);
 t_tuple		cross_product(t_tuple a, t_tuple b);
+
+/*********************************** CANVAS ***********************************/
+
+int			create_canvas(t_canvas *c, double height, double width);
+void		destroy_canvas(t_canvas *canvas);
+void		write_to_canvas(t_canvas *canvas, int x, int y, int color);
+int			pixel_at(t_canvas *canvas, int x, int y);
 
 #endif /* MINI_RSTACK_H */
