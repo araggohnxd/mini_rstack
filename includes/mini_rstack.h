@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 14:08:44 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:08:12 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,33 @@ t_matrix	scale_matrix(double x, double y, double z);
 t_matrix	rotate_matrix_x(double r);
 t_matrix	rotate_matrix_y(double r);
 t_matrix	rotate_matrix_z(double r);
+
+/************************************* RAY ************************************/
+
+/* Ray constructor */
+t_ray		create_ray(t_point origin, t_vector direction);
+t_ray		transform_ray(t_ray r, t_matrix m);
+
+/* Ray operations */
+t_point		get_position(t_ray r, double t);
+t_intersect	*get_hit(t_intersect *xs);
+
+/* Intersection list handlers */
+t_intersect	*create_intersection(double t, t_shape s);
+void		intersection_sorted_insert(t_intersect **head, t_intersect *new);
+void		intersection_list_clear(t_intersect **list);
+size_t		intersection_list_size(t_intersect *list);
+
+/************************************ SHAPE ***********************************/
+
+/* Shape constructors */
+t_shape		create_shape(void);
+t_shape		create_sphere(void);
+
+/* Shape setters */
+void		set_shape_transformation(t_shape *s, t_matrix transformation);
+
+/* Shape intersections */
+void		intersect_sphere(t_shape s, t_ray r, t_intersect **head);
 
 #endif /* MINI_RSTACK_H */

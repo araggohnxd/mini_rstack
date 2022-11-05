@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 15:06:01 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:51:40 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,49 @@ typedef struct s_matrix
 	size_t	size;
 	double	matrix[4][4];
 }	t_matrix;
+
+typedef struct s_ray
+{
+	t_point		origin;
+	t_vector	direction;
+}	t_ray;
+
+typedef enum e_shape_id
+{
+	ID_SPHERE
+}	t_shape_id;
+
+typedef struct s_sphere
+{
+	double	diameter;
+	t_point	center;
+}	t_sphere;
+
+typedef struct s_shape
+{
+	t_shape_id	type;
+	union
+	{
+		t_sphere	sphere;
+	};
+	t_vector	orientation;
+	t_matrix	transformation;
+	t_matrix	inverse_transformation;
+}	t_shape;
+
+typedef struct s_intersect
+{
+	t_shape				s;
+	double				t;
+	struct s_intersect	*next;
+}	t_intersect;
+
+typedef struct s_bhaskara
+{
+	double	a;
+	double	b;
+	double	c;
+	double	delta;
+}	t_bhaskara;
 
 #endif /* INTERNALS_H */
