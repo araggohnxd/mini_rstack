@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 13:29:49 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:04:45 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define EPSILON .00001
 # define VECTOR_W 0.
 # define POINT_W 1.
+# define MAT_MAX 4
+# define MAT_SQR 16
 
 struct s_tuple
 {
@@ -42,5 +44,11 @@ typedef struct s_canvas
 	int		line_length;
 	int		endianness;
 }	t_canvas;
+
+typedef struct s_matrix
+{
+	size_t	size;
+	double	matrix[4][4];
+}	t_matrix;
 
 #endif /* INTERNALS_H */

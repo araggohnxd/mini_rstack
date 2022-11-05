@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 13:37:42 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 14:08:44 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,31 @@ int			create_canvas(t_canvas *c, double height, double width);
 void		destroy_canvas(t_canvas *canvas);
 void		write_to_canvas(t_canvas *canvas, int x, int y, int color);
 int			pixel_at(t_canvas *canvas, int x, int y);
+
+/*********************************** MATRIX ***********************************/
+
+/* Matrix constructors */
+t_matrix	create_matrix(size_t size, const double m[MAT_MAX][MAT_MAX]);
+t_matrix	create_identity_matrix(void);
+t_matrix	create_submatrix(t_matrix m, size_t delrow, size_t delcol);
+
+/* Matrix checkers */
+double		determinant(t_matrix m);
+double		minor(t_matrix m, size_t row, size_t col);
+double		cofactor(t_matrix m, size_t row, size_t col);
+t_bool		is_equal_matrix(t_matrix a, t_matrix b);
+
+/* Matrix operations */
+t_matrix	multiply_matrix(t_matrix a, t_matrix b);
+t_tuple		multiply_matrix_tuple(t_matrix m, t_tuple t);
+t_matrix	transpose_matrix(t_matrix m);
+t_matrix	inverse_matrix(t_matrix m);
+
+/* Matrix transformations */
+t_matrix	translate_matrix(double x, double y, double z);
+t_matrix	scale_matrix(double x, double y, double z);
+t_matrix	rotate_matrix_x(double r);
+t_matrix	rotate_matrix_y(double r);
+t_matrix	rotate_matrix_z(double r);
 
 #endif /* MINI_RSTACK_H */
