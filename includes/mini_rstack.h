@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 16:08:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:20:53 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,18 @@ double		dot_product(t_tuple a, t_tuple b);
 double		magnitude(t_tuple t);
 t_tuple		normalize(t_tuple t);
 t_tuple		cross_product(t_tuple a, t_tuple b);
+
+/************************************ COLOR ***********************************/
+
+/* Color constructors */
+t_color		create_color(double r, double g, double b);
+t_color		create_formatted_color(double r, double g, double b);
+
+/* Color operations */
+t_color		sum_color(t_color a, t_color b);
+t_color		sub_color(t_color a, t_color b);
+t_color		multiply_color(t_color a, t_color b);
+t_color		multiply_color(t_color a, t_color b);
 
 /*********************************** CANVAS ***********************************/
 

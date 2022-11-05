@@ -9,15 +9,15 @@ LIBFT				:= $(LIBFT_PATH)/libft.a
 MINILIBX_PATH		:= $(LIBS)/minilibx
 MINILIBX			:= $(MINILIBX_PATH)/libmlx.a
 
-SOURCE_DIRS			:= . tuple canvas matrix ray shape
+SOURCE_DIRS			:= . tuple color canvas matrix ray shape
 SOURCE_PATH			:= $(addprefix ./sources/, $(SOURCE_DIRS))
 SOURCE_FILES		:= main.c
 SOURCE_FILES		+= tuple_constructors.c tuple_checkers.c tuple_operations.c
 SOURCE_FILES		+= tuple_manipulators.c canvas_constructor.c canvas_destructor.c
-SOURCE_FILES		+= write_to_canvas.c matrix_constructors.c matrix_checkers.c
-SOURCE_FILES		+= matrix_operations.c matrix_transformations.c
-SOURCE_FILES		+= intersection_list.c ray_constructor.c ray_operations.c
-SOURCE_FILES		+= shape_constructors.c shape_setters.c shape_sphere.c
+SOURCE_FILES		+= write_to_canvas.c color_constructors.c color_operations.c
+SOURCE_FILES		+= matrix_constructors.c matrix_checkers.c matrix_operations.c
+SOURCE_FILES		+= matrix_transformations.c intersection_list.c ray_constructor.c
+SOURCE_FILES		+= ray_operations.c shape_constructors.c shape_setters.c shape_sphere.c
 
 OBJECT_PATH			:= ./objects
 OBJECT_FILES		:= $(SOURCE_FILES:%.c=$(OBJECT_PATH)/%.o)

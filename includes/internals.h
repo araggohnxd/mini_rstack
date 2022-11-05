@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 15:51:40 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 16:16:03 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ struct s_tuple
 typedef struct s_tuple	t_tuple;
 typedef struct s_tuple	t_vector;	/* w = 0 */
 typedef struct s_tuple	t_point;	/* w = 1 */
+
+typedef struct s_color
+{
+	double	r;
+	double	g;
+	double	b;
+	int		merged;
+}	t_color;
 
 typedef struct s_canvas
 {
