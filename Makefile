@@ -9,9 +9,11 @@ LIBFT				:= $(LIBFT_PATH)/libft.a
 MINILIBX_PATH		:= $(LIBS)/minilibx
 MINILIBX			:= $(MINILIBX_PATH)/libmlx.a
 
-SOURCE_DIRS			:= .
+SOURCE_DIRS			:= . tuple
 SOURCE_PATH			:= $(addprefix ./sources/, $(SOURCE_DIRS))
 SOURCE_FILES		:= main.c
+SOURCE_FILES		+= tuple_constructors.c tuple_checkers.c tuple_operations.c
+SOURCE_FILES		+= tuple_manipulators.c
 
 OBJECT_PATH			:= ./objects
 OBJECT_FILES		:= $(SOURCE_FILES:%.c=$(OBJECT_PATH)/%.o)
