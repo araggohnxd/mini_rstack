@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 16:13:56 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:40:40 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ static int	set_sphere_diameter(char *token, t_shape *sphere)
 	if (!ft_isfloat(token))
 		return (error(ERR_SPH_DMTER_VALUE));
 	sphere->sphere.diameter = ft_atof(token);
-	if (sphere->sphere.diameter <= 0.0)
+	if (sphere->sphere.diameter <= 0)
 		return (error(ERR_SPH_DMTER_RANGE));
-	sphere->sphere.diameter /= 2.0;
+	sphere->sphere.diameter /= 2;
 	return (0);
 }
 

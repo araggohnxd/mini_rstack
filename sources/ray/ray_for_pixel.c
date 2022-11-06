@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:58:26 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 19:02:28 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:45:56 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ t_ray	ray_for_pixel(t_camera camera, double x, double y)
 	double	x_world;
 	double	y_world;
 
-	x_offset = (x + 0.5) * camera.pixel_size;
-	y_offset = (y + 0.5) * camera.pixel_size;
+	x_offset = (x + .5) * camera.pixel_size;
+	y_offset = (y + .5) * camera.pixel_size;
 	x_world = camera.half_width - x_offset;
 	y_world = camera.half_height - y_offset;
 	return (_ray_for_pixel(camera, x_world, y_world));

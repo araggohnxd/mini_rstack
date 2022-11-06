@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:27:50 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:39:00 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ t_matrix	rotate_matrix_x(double r);
 t_matrix	rotate_matrix_y(double r);
 t_matrix	rotate_matrix_z(double r);
 t_matrix	view_transform(t_point from, t_point to, t_vector up);
+t_matrix	full_rotation_matrix(t_vector vector);
 
 /************************************* RAY ************************************/
 

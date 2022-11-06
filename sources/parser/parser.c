@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 15:22:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 16:14:24 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:46:20 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static t_delegator	*get_parse_function(t_parse_id id)
 	function_table[PARSE_CAMERA] = parse_camera;
 	function_table[PARSE_LIGHT] = parse_light;
 	function_table[PARSE_SPHERE] = parse_sphere;
-	// function_table[PARSE_PLANE] = parse_plane;
-	// function_table[PARSE_CYLINDER] = parse_cylinder;
-	// function_table[PARSE_CONE] = parse_cone;
+	function_table[PARSE_PLANE] = parse_plane;
+	function_table[PARSE_CYLINDER] = parse_cylinder;
+	function_table[PARSE_CONE] = parse_cone;
 	return (function_table[id]);
 }
 
