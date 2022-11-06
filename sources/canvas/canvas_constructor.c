@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:19:36 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 13:41:21 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 21:44:56 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	destroy_mlx(void *mlx)
 	free(mlx);
 }
 
-int	create_canvas(t_canvas *c, double height, double width)
+int	create_canvas(t_canvas *c, double width, double height)
 {
 	c->mlx = mlx_init();
 	if (!c->mlx)

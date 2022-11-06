@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 16:20:53 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:34:27 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,19 @@ t_color		create_formatted_color(double r, double g, double b);
 t_color		sum_color(t_color a, t_color b);
 t_color		sub_color(t_color a, t_color b);
 t_color		multiply_color(t_color a, t_color b);
-t_color		multiply_color(t_color a, t_color b);
+t_color		scalar_multiply_color(t_color a, double multiplier);
 
 /*********************************** CANVAS ***********************************/
 
-int			create_canvas(t_canvas *c, double height, double width);
-void		destroy_canvas(t_canvas *canvas);
+/* Canvas operations */
 void		write_to_canvas(t_canvas *canvas, int x, int y, int color);
 int			pixel_at(t_canvas *canvas, int x, int y);
+
+/* Canvas constructor */
+int			create_canvas(t_canvas *c, double width, double height);
+
+/* Canvas destructor */
+void		destroy_canvas(t_canvas *canvas);
 
 /*********************************** MATRIX ***********************************/
 
@@ -86,6 +91,7 @@ t_matrix	scale_matrix(double x, double y, double z);
 t_matrix	rotate_matrix_x(double r);
 t_matrix	rotate_matrix_y(double r);
 t_matrix	rotate_matrix_z(double r);
+t_matrix	view_transform(t_point from, t_point to, t_vector up);
 
 /************************************* RAY ************************************/
 
@@ -96,9 +102,12 @@ t_ray		transform_ray(t_ray r, t_matrix m);
 /* Ray operations */
 t_point		get_position(t_ray r, double t);
 t_intersect	*get_hit(t_intersect *xs);
+t_color		shade_hit(t_world world, t_comps comps, t_list *lights);
+t_bool		is_shadowed(t_world world, t_point point, t_lgt_point lp);
+t_color		color_at(t_world world, t_ray ray);
 
 /* Intersection list handlers */
-t_intersect	*create_intersection(double t, t_shape s);
+t_intersect	*create_intersection(double t, t_shape *s);
 void		intersection_sorted_insert(t_intersect **head, t_intersect *new);
 void		intersection_list_clear(t_intersect **list);
 size_t		intersection_list_size(t_intersect *list);
@@ -106,13 +115,52 @@ size_t		intersection_list_size(t_intersect *list);
 /************************************ SHAPE ***********************************/
 
 /* Shape constructors */
-t_shape		create_shape(void);
-t_shape		create_sphere(void);
+t_shape		*create_shape(void);
+t_shape		*create_sphere(void);
 
 /* Shape setters */
 void		set_shape_transformation(t_shape *s, t_matrix transformation);
 
 /* Shape intersections */
-void		intersect_sphere(t_shape s, t_ray r, t_intersect **head);
+void		intersect_sphere(t_shape *s, t_ray r, t_intersect **head);
+
+/* Shape normal */
+t_vector	get_sphere_normal(t_shape *s, t_point p);
+
+/************************************ LIGHT ***********************************/
+
+/* Light operations */
+t_color		lighting(t_lgt_attr attr);
+
+/* Light constructors */
+t_material	create_material(void);
+t_pos_attr	create_pos_attr(t_vector camera, t_vector normal, t_point pos);
+t_lgt_point	*create_light_point(t_point position, t_color intensity);
+t_lgt_attr	create_light_attr(t_lgt_point lp, t_pos_attr pos, t_material m);
+
+/************************************ WORLD ***********************************/
+
+/* World operations */
+t_vector	normal_at(t_shape *s, t_point p);
+t_comps		prepare_computation(t_intersect *i, t_ray ray);
+void		intersect_world(t_world world, t_ray ray, t_intersect **head);
+
+/* World constructor */
+t_world		create_world(void);
+
+/* World destructor */
+void		destroy_world(t_world *w);
+
+/*********************************** CAMERA ***********************************/
+
+/* Camera operations */
+t_ray		ray_for_pixel(t_camera camera, double x, double y);
+int			render(t_canvas *canvas, t_camera camera, t_world world);
+
+/* Camera constructor */
+t_camera	create_camera(double h_size, double v_size, double field_of_view);
+
+/* Camera setter */
+void		set_camera_transformation(t_camera *camera, t_matrix transform);
 
 #endif /* MINI_RSTACK_H */

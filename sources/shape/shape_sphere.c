@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:32:25 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 15:51:23 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:48:16 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_bhaskara	get_delta_value(t_ray r, t_vector sphere_to_ray)
 	return (_);
 }
 
-void	intersect_sphere(t_shape s, t_ray r, t_intersect **head)
+void	intersect_sphere(t_shape *s, t_ray r, t_intersect **head)
 {
 	double		x[2];
 	t_bhaskara	_;
@@ -38,4 +38,14 @@ void	intersect_sphere(t_shape s, t_ray r, t_intersect **head)
 	intersection_sorted_insert(head, create_intersection(x[0], s));
 	if (!is_equal_double(x[0], x[1]))
 		intersection_sorted_insert(head, create_intersection(x[1], s));
+}
+
+t_vector	get_sphere_normal(t_shape *s, t_point p)
+{
+	t_vector	normal;
+
+	normal = sub_tuple(p, create_point(0, 0, 0));
+	normal.w = VECTOR_W;
+	(void)s;
+	return (normal);
 }

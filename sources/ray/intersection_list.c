@@ -6,13 +6,13 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:24:24 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 15:51:29 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/05 18:36:28 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mini_rstack.h>
 
-t_intersect	*create_intersection(double t, t_shape s)
+t_intersect	*create_intersection(double t, t_shape *s)
 {
 	t_intersect	*intersection;
 

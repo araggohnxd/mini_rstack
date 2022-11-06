@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shape_setters.c                                    :+:      :+:    :+:   */
+/*   world_destructor.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 16:04:53 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 20:57:18 by maolivei         ###   ########.fr       */
+/*   Created: 2022/11/05 17:47:36 by maolivei          #+#    #+#             */
+/*   Updated: 2022/11/05 18:30:59 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mini_rstack.h>
 
-void	set_shape_transformation(t_shape *s, t_matrix transformation)
+void	destroy_world(t_world *w)
 {
-	s->transformation = transformation;
-	s->inverse_transformation = inverse_matrix(transformation);
-	s->transposed_inverse = transpose_matrix(s->inverse_transformation);
+	ft_lstclear(&w->lights, free);
+	ft_lstclear(&w->shapes, free);
 }
