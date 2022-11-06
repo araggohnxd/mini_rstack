@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:18:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:03:56 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:15:50 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	setup_camera(t_camera *camera, t_rt_camera c)
 	t_vector	aux;
 	t_vector	up;
 
-	if (is_equal_double(1.0, c.orientation.y))
+	if (is_equal_double(1, c.orientation.y))
 		up = create_vector(1, 0, 0);
 	else
 	{

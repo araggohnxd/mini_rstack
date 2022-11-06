@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:13:34 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 15:26:19 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:17:03 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,53 @@ t_shape	*create_sphere(void)
 	sphere->get_normal = get_sphere_normal;
 	sphere->intersect = intersect_sphere;
 	return (sphere);
+}
+
+t_shape	*create_plane(void)
+{
+	t_shape	*plane;
+
+	plane = create_shape();
+	if (!plane)
+		return (NULL);
+	plane->type = ID_PLANE;
+	plane->material.specular = .05;
+	plane->plane.position = create_vector(0, 1, 0);
+	plane->intersect = intersect_plane;
+	plane->get_normal = get_plane_normal;
+	return (plane);
+}
+
+t_shape	*create_cylinder(void)
+{
+	t_shape	*cylinder;
+
+	cylinder = create_shape();
+	if (!cylinder)
+		return (NULL);
+	cylinder->type = ID_CYLINDER;
+	cylinder->cylinder.diameter = 1;
+	cylinder->cylinder.min = -INFINITY;
+	cylinder->cylinder.max = INFINITY;
+	cylinder->cylinder.capped = TRUE;
+	cylinder->intersect = intersect_cylinder;
+	cylinder->get_normal = get_cylinder_normal;
+	return (cylinder);
+}
+
+t_shape	*create_cone(void)
+{
+	t_shape	*cone;
+
+	cone = create_shape();
+	if (!cone)
+		return (NULL);
+	cone->type = ID_CONE;
+	cone->cone.diameter = 1;
+	cone->cone.min = -INFINITY;
+	cone->cone.max = INFINITY;
+	cone->cone.capped = TRUE;
+	cone->intersect = intersect_cone;
+	cone->get_normal = get_cone_normal;
+	return (cone);
 }

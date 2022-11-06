@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 16:12:33 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:13:52 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,10 @@ typedef struct s_ray
 
 typedef enum e_shape_id
 {
-	ID_SPHERE
+	ID_SPHERE,
+	ID_PLANE,
+	ID_CYLINDER,
+	ID_CONE
 }	t_shape_id;
 
 typedef struct s_material
@@ -122,6 +125,22 @@ typedef struct s_sphere
 	t_point	center;
 }	t_sphere;
 
+typedef struct s_plane
+{
+	t_point	position;
+}	t_plane;
+
+typedef struct s_cylinder
+{
+	t_point	position;
+	double	diameter;
+	double	min;
+	double	max;
+	t_bool	capped;
+}	t_cylinder;
+
+typedef t_cylinder	t_cone;
+
 typedef struct s_intersect	t_intersect;
 
 typedef struct s_shape
@@ -130,6 +149,9 @@ typedef struct s_shape
 	union
 	{
 		t_sphere	sphere;
+		t_plane		plane;
+		t_cylinder	cylinder;
+		t_cone		cone;
 	};
 	t_vector	orientation;
 	t_matrix	transformation;

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:04:56 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:27:50 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,15 +117,24 @@ size_t		intersection_list_size(t_intersect *list);
 /* Shape constructors */
 t_shape		*create_shape(void);
 t_shape		*create_sphere(void);
+t_shape		*create_plane(void);
+t_shape		*create_cylinder(void);
+t_shape		*create_cone(void);
 
 /* Shape setters */
 void		set_shape_transformation(t_shape *s, t_matrix transformation);
 
 /* Shape intersections */
-void		intersect_sphere(t_shape *s, t_ray r, t_intersect **head);
+void		intersect_sphere(t_shape *sphere, t_ray ray, t_intersect **head);
+void		intersect_cylinder(t_shape *cyl, t_ray ray, t_intersect **head);
+void		intersect_plane(t_shape *plane, t_ray ray, t_intersect **head);
+void		intersect_cone(t_shape *cone, t_ray ray, t_intersect **head);
 
 /* Shape normal */
-t_vector	get_sphere_normal(t_shape *s, t_point p);
+t_vector	get_sphere_normal(t_shape *sphere, t_point point);
+t_vector	get_cylinder_normal(t_shape *cyl, t_point point);
+t_vector	get_plane_normal(t_shape *plane, t_point point);
+t_vector	get_cone_normal(t_shape *cone, t_point point);
 
 /************************************ LIGHT ***********************************/
 
