@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:13:34 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 19:19:58 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 15:26:19 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_shape	*create_sphere(void)
 	if (!sphere)
 		return (NULL);
 	sphere->type = ID_SPHERE;
-	sphere->sphere.diameter = 1.;
+	sphere->sphere.diameter = 1;
 	sphere->sphere.center = create_point(0, 0, 0);
 	sphere->material = create_material();
 	sphere->get_normal = get_sphere_normal;

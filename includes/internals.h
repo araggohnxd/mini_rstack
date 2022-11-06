@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 22:18:43 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 16:12:33 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <libft.h>
 # include <mlx.h>
 # include <math.h>
+# include <fcntl.h>
+# include <stdio.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
 
@@ -31,8 +33,33 @@
 #  define M_PI_2 1.57079632679489661923	/* π / 2 */
 # endif
 
+# define NAME "mini_rstack"
 # define RT_WIDTH 1366
 # define RT_HEIGHT 768
+
+# define AMBIENT "A"
+# define CAMERA "C"
+# define LIGHT	"L"
+# define SPHERE "sp"
+# define PLANE	"pl"
+# define CYLINDER "cy"
+# define CONE "cn"
+# define BLANKSPACES "\f\r\t\v"
+
+typedef enum e_parse_id
+{
+	NONE,
+	PARSE_AMBIENT,
+	PARSE_CAMERA,
+	PARSE_LIGHT,
+	PARSE_SPHERE,
+	PARSE_PLANE,
+	PARSE_CYLINDER,
+	PARSE_CONE
+}	t_parse_id;
+
+# define PARSE_ID_MIN PARSE_AMBIENT
+# define PARSE_ID_MAX PARSE_CONE
 
 typedef struct s_tuple
 {
@@ -179,5 +206,37 @@ typedef struct s_camera
 	t_matrix	transformation;
 	t_matrix	inverse_transformation;
 }	t_camera;
+
+typedef struct s_rt_ambient
+{
+	double	ratio;
+	t_color	color;
+}	t_rt_ambient;
+
+typedef struct s_rt_camera
+{
+	t_point		view_point;
+	t_vector	orientation;
+	int			fov;
+}	t_rt_camera;
+
+typedef struct s_rt_scene
+{
+	t_rt_ambient	*ambient;
+	t_rt_camera		*camera;
+	t_list			*shapes;
+	t_list			*lights;
+	double			brightness;
+}	t_rt_scene;
+
+typedef struct s_minirt
+{
+	t_camera	camera;
+	t_canvas	canvas;
+	t_world		world;
+	void		*window;
+}	t_minirt;
+
+typedef int	t_delegator(char **tokens, t_rt_scene *s);
 
 #endif /* INTERNALS_H */

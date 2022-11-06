@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:08:48 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 19:06:06 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 15:26:21 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_intersect	*get_hit(t_intersect *xs)
 {
 	while (xs)
 	{
-		if (xs->t > 0.)
+		if (xs->t > 0)
 			return (xs);
 		xs = xs->next;
 	}

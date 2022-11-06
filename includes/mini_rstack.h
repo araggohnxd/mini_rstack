@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 22:34:27 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:04:56 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,5 +162,44 @@ t_camera	create_camera(double h_size, double v_size, double field_of_view);
 
 /* Camera setter */
 void		set_camera_transformation(t_camera *camera, t_matrix transform);
+
+/*********************************** PARSER ***********************************/
+
+/* Paresr handlers */
+int			scene_to_world(t_minirt *rt, t_rt_scene *s);
+int			read_rt_file(char *filename, t_rt_scene *s);
+int			parse_ambient(char **tokens, t_rt_scene *s);
+int			parse_camera(char **tokens, t_rt_scene *s);
+int			parse_light(char **tokens, t_rt_scene *s);
+int			parse_sphere(char **tokens, t_rt_scene *s);
+int			parse_plane(char **tokens, t_rt_scene *s);
+int			parse_cylinder(char **tokens, t_rt_scene *s);
+int			parse_cone(char **tokens, t_rt_scene *s);
+
+/* Parser setters */
+int			set_shape_color(char *token, t_shape *shape);
+int			set_shape_orientation_vector(char *token, t_shape *shape);
+int			set_shape_material(t_shape *shape, t_rt_scene *s);
+
+/* Checkers */
+int			check_user_input(int argc);
+int			check_file_extension(char *filename);
+int			check_scene_elements(t_rt_scene *s);
+int			check_vector_normalization(double x, double y, double z);
+
+/* Utils */
+int			error(const char *warning);
+double		radians(double degrees);
+void		destroy_scene(t_rt_scene *scene);
+void		destroy_minirt(t_rt_scene *scene, t_minirt *rt);
+
+/************************************* MLX ************************************/
+
+/* Setup */
+void		setup_visual_environment(t_minirt *rt);
+
+/* Hooks */
+int			end_program(t_minirt *rt);
+int			keypress_handler(int keysym, t_minirt *rt);
 
 #endif /* MINI_RSTACK_H */
