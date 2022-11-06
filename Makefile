@@ -81,9 +81,9 @@ fclean:				clean
 re:					fclean all
 
 run:				all
-					./$(NAME)
+					./$(NAME) $(argv)
 
 vg:					all
-					$(VALGRIND) $(VGFLAGS) ./$(NAME)
+					$(VALGRIND) $(VGFLAGS) ./$(NAME) $(argv)
 
 .PHONY:				all clean fclean re run vg
