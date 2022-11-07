@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:42:03 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:44:26 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 int	set_shape_checkerboard(char **tokens, t_shape *shape, int offset)
 {
 	char	**rgb;
-	t_color	aux;
+	int		aux[3];
 
 	if (!tokens[offset])
 		return (0);
@@ -43,14 +43,15 @@ int	set_shape_checkerboard(char **tokens, t_shape *shape, int offset)
 		return (ft_free_matrix((void *)&rgb), error(ERR_SHP_CHECKER_SETTN));
 	if (!ft_isnumber(rgb[0]) || !ft_isnumber(rgb[1]) || !ft_isnumber(rgb[2]))
 		return (ft_free_matrix((void *)&rgb), error(ERR_SHP_CHECKER_VALUE));
-	aux = create_formatted_color(
-			ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
+	aux[0] = ft_atoi(rgb[0]);
+	aux[1] = ft_atoi(rgb[1]);
+	aux[2] = ft_atoi(rgb[2]);
 	ft_free_matrix((void *)&rgb);
-	if (!ft_isinrange_f(aux.r, 0, 255) \
-	|| !ft_isinrange_f(aux.g, 0, 255) \
-	|| !ft_isinrange_f(aux.b, 0, 255))
+	if (!ft_isinrange_f(aux[0], 0, 255) || !ft_isinrange_f(aux[1], 0, 255) \
+	|| !ft_isinrange_f(aux[2], 0, 255))
 		return (error(ERR_SHP_CHECKER_RANGE));
-	shape->material.pattern = create_pattern(shape->material.color, aux);
+	shape->material.pattern = create_pattern(shape->material.color,
+			create_formatted_color(aux[0], aux[1], aux[2]));
 	shape->material.has_pattern = TRUE;
 	return (0);
 }
@@ -69,21 +70,22 @@ int	set_shape_linked_list_node(t_shape *shape, t_rt_scene *s)
 int	set_shape_color(char *token, t_shape *shape)
 {
 	char	**rgb;
-	t_color	aux;
+	int		aux[3];
 
 	rgb = ft_split(token, ',');
 	if (!rgb || ft_splitsize(rgb) != 3)
 		return (ft_free_matrix((void *)&rgb), error(ERR_SHP_COLOR_SETTN));
 	if (!ft_isnumber(rgb[0]) || !ft_isnumber(rgb[1]) || !ft_isnumber(rgb[2]))
 		return (ft_free_matrix((void *)&rgb), error(ERR_SHP_COLOR_VALUE));
-	aux = create_formatted_color(
-			ft_atoi(rgb[0]), ft_atoi(rgb[1]), ft_atoi(rgb[2]));
+	aux[0] = ft_atoi(rgb[0]);
+	aux[1] = ft_atoi(rgb[1]);
+	aux[2] = ft_atoi(rgb[2]);
 	ft_free_matrix((void *)&rgb);
-	if (!ft_isinrange_f(aux.r, 0, 255) \
-	|| !ft_isinrange_f(aux.g, 0, 255) \
-	|| !ft_isinrange_f(aux.b, 0, 255))
+	if (!ft_isinrange_f(aux[0], 0, 255) \
+	|| !ft_isinrange_f(aux[1], 0, 255) \
+	|| !ft_isinrange_f(aux[2], 0, 255))
 		return (error(ERR_SHP_COLOR_RANGE));
-	shape->material.color = aux;
+	shape->material.color = create_formatted_color(aux[0], aux[1], aux[2]);
 	return (0);
 }
 
