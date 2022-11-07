@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:19:15 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 21:59:02 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 02:30:54 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_material	create_material(void)
 	material.diffuse = .9;
 	material.specular = .9;
 	material.shininess = 200;
+	material.has_pattern = FALSE;
 	return (material);
 }
 

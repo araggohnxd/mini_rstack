@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:27:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 22:33:54 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 02:28:30 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,14 @@ static t_color	get_lighting(t_lgt_attr attr, t_color eff, t_vector lightv)
 t_color	lighting(t_lgt_attr attr)
 {
 	t_color		eff;
+	t_color		color;
 	t_vector	lightv;
 
-	eff = multiply_color(attr.material.color, attr.lp.intensity);
+	if (attr.material.has_pattern)
+		color = get_pattern(attr.material.pattern, attr.position, attr.shape);
+	else
+		color = attr.material.color;
+	eff = multiply_color(color, attr.lp.intensity);
 	if (attr.in_shadow)
 		return (multiply_color(eff, attr.material.ambient));
 	lightv = normalize(sub_tuple(attr.lp.position, attr.position));

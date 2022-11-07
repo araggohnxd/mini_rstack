@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:13:52 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 02:17:39 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,13 +110,23 @@ typedef enum e_shape_id
 	ID_CONE
 }	t_shape_id;
 
+typedef struct s_pattern
+{
+	t_color		color_a;
+	t_color		color_b;
+	t_matrix	transformation;
+	t_matrix	inverse_transformation;
+}	t_pattern;
+
 typedef struct s_material
 {
-	t_color	color;
-	t_color	ambient;
-	double	diffuse;
-	double	specular;
-	double	shininess;
+	t_color		color;
+	t_color		ambient;
+	double		diffuse;
+	double		specular;
+	double		shininess;
+	t_pattern	pattern;
+	t_bool		has_pattern;
 }	t_material;
 
 typedef struct s_sphere

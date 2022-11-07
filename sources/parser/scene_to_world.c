@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:18:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 18:58:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 02:15:47 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,30 @@ static void	setup_camera(t_camera *camera, t_rt_camera c)
 	set_camera_transformation(camera, transformation);
 }
 
-static void	setup_light(t_list **light, t_rt_scene *s)
+static void	setup_lights(t_list **lights, t_rt_scene *s)
 {
-	*light = s->lights;
+	*lights = s->lights;
 }
 
-static void	setup_objects(t_list **objects, t_rt_scene *s)
+static void	setup_shapes(t_list **shapes, t_rt_scene *s)
 {
 	t_shape	*current_shape;
-	t_list	*shapes;
+	t_list	*shape_list;
 
-	shapes = s->shapes;
-	while (shapes)
+	shape_list = s->shapes;
+	while (shape_list)
 	{
-		current_shape = (t_shape *)shapes->content;
+		current_shape = (t_shape *)shape_list->content;
 		set_shape_material(current_shape, s);
-		shapes = shapes->next;
+		shape_list = shape_list->next;
 	}
-	*objects = s->shapes;
+	*shapes = s->shapes;
 }
 
 static void	setup_world(t_world *world, t_rt_scene *s)
 {
-	setup_objects(&world->shapes, s);
-	setup_light(&world->lights, s);
+	setup_shapes(&world->shapes, s);
+	setup_lights(&world->lights, s);
 }
 
 int	scene_to_world(t_minirt *rt, t_rt_scene *s)

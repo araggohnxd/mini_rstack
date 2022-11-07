@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:39:00 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 02:32:44 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ t_color		sum_color(t_color a, t_color b);
 t_color		sub_color(t_color a, t_color b);
 t_color		multiply_color(t_color a, t_color b);
 t_color		scalar_multiply_color(t_color a, double multiplier);
+
+/* Color patterns */
+t_pattern	create_pattern(t_color a, t_color b);
+t_color		pattern_at(t_pattern pattern, t_point point);
+t_color		get_pattern(t_pattern pattern, t_point point, t_shape *shape);
+void		set_pattern_transformation(t_pattern *pattern, t_matrix transform);
 
 /*********************************** CANVAS ***********************************/
 
