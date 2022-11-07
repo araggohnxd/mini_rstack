@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:38:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 16:34:43 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:50:51 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	end_program(t_minirt *rt)
 {
-	mlx_destroy_window(rt->canvas.mlx, rt->window);
+	mlx_destroy_window(get_mlx()->mlx, rt->window);
 	destroy_canvas(&rt->canvas);
+	destroy_mlx();
 	return (exit(0), 0);
 }
 

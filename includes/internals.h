@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 02:17:39 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:47:20 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,13 @@ typedef struct s_color
 	int		merged;
 }	t_color;
 
-typedef struct s_canvas
+typedef struct s_mlx
 {
 	void	*mlx;
+}	t_mlx;
+
+typedef struct s_canvas
+{
 	void	*image;
 	char	*address;
 	int		bits_per_pixel;

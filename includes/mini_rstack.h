@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:32:16 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:51:31 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,10 +210,12 @@ int			error(const char *warning);
 double		radians(double degrees);
 void		destroy_scene(t_rt_scene *scene);
 void		destroy_minirt(t_rt_scene *scene, t_minirt *rt);
+void		destroy_mlx(void);
 
 /************************************* MLX ************************************/
 
 /* Setup */
+t_mlx		*get_mlx(void);
 void		setup_visual_environment(t_minirt *rt);
 
 /* Hooks */

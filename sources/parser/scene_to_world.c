@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:18:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 02:15:47 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:51:49 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@ int	scene_to_world(t_minirt *rt, t_rt_scene *s)
 	setup_camera(&rt->camera, *s->camera);
 	if (render(&rt->canvas, rt->camera, rt->world) != 0)
 		return (-1);
-	rt->window = mlx_new_window(rt->canvas.mlx, RT_WIDTH, RT_HEIGHT, NAME);
+	rt->window = mlx_new_window(get_mlx()->mlx, RT_WIDTH, RT_HEIGHT, NAME);
 	if (!rt->window)
 	{
 		destroy_canvas(&rt->canvas);
+		destroy_mlx();
 		return (error("Unable to create MLX window."));
 	}
 	return (0);
