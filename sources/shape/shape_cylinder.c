@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:17:21 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:45:05 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:37:14 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ t_vector	get_cylinder_normal(t_shape *cyl, t_point point)
 	double	distance;
 
 	distance = (point.x * point.x) + (point.z * point.z);
-	if (distance < 1 && point.y >= cyl->cylinder.max - EPSILON)
+	if (distance < 1 && point.y >= (cyl->cylinder.max - EPSILON))
 		return (create_vector(0, 1, 0));
-	if (distance < 1 && point.y <= cyl->cylinder.min + EPSILON)
+	if (distance < 1 && point.y <= (cyl->cylinder.min + EPSILON))
 		return (create_vector(0, -1, 0));
 	return (create_vector(point.x, 0, point.z));
 }
