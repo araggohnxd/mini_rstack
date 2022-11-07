@@ -6,18 +6,13 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:47:43 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:37:24 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mini_rstack.h>
 
-#define ERR_CON_SCL "Unable to allocate memory for cone's scaling."
-#define ERR_CON_RTT "Unable to allocate memory for cone's rotation."
-#define ERR_CON_TRL "Unable to allocate memory for cone's translation."
-#define ERR_CON_TRF "Unable to allocate memory for cone's transformation."
 #define ERR_CON_MALLOC_FAIL "Unable to allocate memory for cone."
-#define ERR_CON_LINKED_LIST "Unable to allocate memory for cone list node."
 #define ERR_CON_BAD_CONFIGS "Invalid cone configuration."
 #define ERR_CON_COORD_SETTN "Invalid cone coordinates settings."
 #define ERR_CON_COORD_VALUE "Invalid cone coordinates value."
@@ -86,10 +81,10 @@ static int	set_cone_coordinates(char *token, t_shape *cone)
 
 int	parse_cone(char **tokens, t_rt_scene *s)
 {
-	t_shape	*cone;
-	t_list	*node;
+	const size_t	splitsize = ft_splitsize(tokens);
+	t_shape			*cone;
 
-	if (ft_splitsize(tokens) != 6)
+	if (splitsize < 6 || splitsize > 8)
 		return (error(ERR_CON_BAD_CONFIGS));
 	cone = create_cone();
 	if (!cone)
@@ -105,9 +100,9 @@ int	parse_cone(char **tokens, t_rt_scene *s)
 	if (set_shape_color(tokens[5], cone) != 0)
 		return (free(cone), -1);
 	set_cone_transformation(cone);
-	node = ft_lstnew(cone);
-	if (!node)
-		return (free(cone), error(ERR_CON_LINKED_LIST));
-	ft_lstadd_front(&s->shapes, node);
+	if (set_shape_checkerboard(tokens, cone, 6) != 0)
+		return (free(cone), -1);
+	if (set_shape_linked_list_node(cone, s) != 0)
+		return (free(cone), -1);
 	return (0);
 }

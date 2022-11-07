@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:23:28 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:39:19 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:36:40 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ static int	set_plane_coordinates(char *token, t_shape *plane)
 
 int	parse_plane(char **tokens, t_rt_scene *s)
 {
-	t_shape	*plane;
-	t_list	*node;
+	const size_t	splitsize = ft_splitsize(tokens);
+	t_shape			*plane;
 
-	if (ft_splitsize(tokens) != 4)
+	if (splitsize < 4 || splitsize > 6)
 		return (error(ERR_PLN_BAD_CONFIGS));
 	plane = create_plane();
 	if (!plane)
@@ -63,9 +63,9 @@ int	parse_plane(char **tokens, t_rt_scene *s)
 	if (set_shape_color(tokens[3], plane) != 0)
 		return (free(plane), -1);
 	set_plane_transformation(plane);
-	node = ft_lstnew(plane);
-	if (!node)
-		return (free(plane), error(ERR_PLN_LINKED_LIST));
-	ft_lstadd_front(&s->shapes, node);
+	if (set_shape_checkerboard(tokens, plane, 4) != 0)
+		return (free(plane), -1);
+	if (set_shape_linked_list_node(plane, s) != 0)
+		return (free(plane), -1);
 	return (0);
 }

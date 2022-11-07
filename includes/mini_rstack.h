@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 02:32:44 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:32:16 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,6 +196,8 @@ int			parse_cone(char **tokens, t_rt_scene *s);
 int			set_shape_color(char *token, t_shape *shape);
 int			set_shape_orientation_vector(char *token, t_shape *shape);
 int			set_shape_material(t_shape *shape, t_rt_scene *s);
+int			set_shape_checkerboard(char **tokens, t_shape *shape, int offset);
+int			set_shape_linked_list_node(t_shape *shape, t_rt_scene *s);
 
 /* Checkers */
 int			check_user_input(int argc);

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:47:43 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:37:01 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ static int	set_cylinder_coordinates(char *token, t_shape *cyl)
 
 int	parse_cylinder(char **tokens, t_rt_scene *s)
 {
-	t_shape	*cylinder;
-	t_list	*node;
+	const size_t	splitsize = ft_splitsize(tokens);
+	t_shape			*cylinder;
 
-	if (ft_splitsize(tokens) != 6)
+	if (splitsize < 6 || splitsize > 8)
 		return (error(ERR_CYL_BAD_CONFIGS));
 	cylinder = create_cylinder();
 	if (!cylinder)
@@ -102,9 +102,9 @@ int	parse_cylinder(char **tokens, t_rt_scene *s)
 	if (set_shape_color(tokens[5], cylinder) != 0)
 		return (free(cylinder), -1);
 	set_cylinder_transformation(cylinder);
-	node = ft_lstnew(cylinder);
-	if (!node)
-		return (free(cylinder), error(ERR_CYL_LINKED_LIST));
-	ft_lstadd_front(&s->shapes, node);
+	if (set_shape_checkerboard(tokens, cylinder, 6) != 0)
+		return (free(cylinder), -1);
+	if (set_shape_linked_list_node(cylinder, s) != 0)
+		return (free(cylinder), -1);
 	return (0);
 }

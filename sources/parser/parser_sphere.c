@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:40:40 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:36:11 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ static int	set_sphere_center_coordinates(char *token, t_shape *sphere)
 
 int	parse_sphere(char **tokens, t_rt_scene *s)
 {
-	t_shape	*sphere;
-	t_list	*node;
+	const size_t	splitsize = ft_splitsize(tokens);
+	t_shape			*sphere;
 
-	if (ft_splitsize(tokens) != 4)
+	if (splitsize < 4 || splitsize > 6)
 		return (error(ERR_SPH_BAD_CONFIGS));
 	sphere = create_sphere();
 	if (!sphere)
@@ -78,10 +78,10 @@ int	parse_sphere(char **tokens, t_rt_scene *s)
 		return (free(sphere), -1);
 	if (set_shape_color(tokens[3], sphere) != 0)
 		return (free(sphere), -1);
+	if (set_shape_checkerboard(tokens, sphere, 4) != 0)
+		return (free(sphere), -1);
 	set_sphere_transformation(sphere);
-	node = ft_lstnew(sphere);
-	if (!node)
-		return (free(sphere), error(ERR_SPH_LINKED_LIST));
-	ft_lstadd_front(&s->shapes, node);
+	if (set_shape_linked_list_node(sphere, s) != 0)
+		return (free(sphere), -1);
 	return (0);
 }
