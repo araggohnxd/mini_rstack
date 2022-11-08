@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:13:34 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:17:03 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:05:26 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_shape	*create_shape(void)
 	if (!shape)
 		return (NULL);
 	shape->material = create_material();
-	shape->transformation = create_identity_matrix();
-	shape->inverse_transformation = create_identity_matrix();
-	shape->transposed_inverse = create_identity_matrix();
+	shape->transform = create_identity_matrix();
+	shape->inverse_transform = create_identity_matrix();
+	shape->inverse_transpose_transform = create_identity_matrix();
 	return (shape);
 }
 

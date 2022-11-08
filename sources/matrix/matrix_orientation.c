@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:34:41 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:36:20 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ t_matrix	full_rotation_matrix(t_vector vector)
 	else
 		z = acos(vector.y / ratio);
 	x = acos(ratio);
-	return (multiply_matrix(rotate_matrix_z(z), rotate_matrix_x(x)));
+	return (mul_matrix(rotate_matrix_z(z), rotate_matrix_x(x)));
 }

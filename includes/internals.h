@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:47:20 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:06:05 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,8 @@ typedef struct s_pattern
 {
 	t_color		color_a;
 	t_color		color_b;
-	t_matrix	transformation;
-	t_matrix	inverse_transformation;
+	t_matrix	transform;
+	t_matrix	inverse_transform;
 }	t_pattern;
 
 typedef struct s_material
@@ -168,9 +168,9 @@ typedef struct s_shape
 		t_cone		cone;
 	};
 	t_vector	orientation;
-	t_matrix	transformation;
-	t_matrix	inverse_transformation;
-	t_matrix	transposed_inverse;
+	t_matrix	transform;
+	t_matrix	inverse_transform;
+	t_matrix	inverse_transpose_transform;
 	t_material	material;
 	t_vector	(*get_normal)(struct s_shape *, t_point);
 	void		(*intersect)(struct s_shape *, t_ray, t_intersect **);
@@ -239,8 +239,8 @@ typedef struct s_camera
 	double		v_size;
 	double		half_width;
 	double		half_height;
-	t_matrix	transformation;
-	t_matrix	inverse_transformation;
+	t_matrix	transform;
+	t_matrix	inverse_transform;
 }	t_camera;
 
 typedef struct s_rt_ambient

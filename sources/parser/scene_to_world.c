@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:18:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:51:49 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:21:21 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	setup_camera(t_camera *camera, t_rt_camera c)
 {
-	t_matrix	transformation;
+	t_matrix	transform;
 	t_vector	aux;
 	t_vector	up;
 
@@ -22,11 +22,11 @@ static void	setup_camera(t_camera *camera, t_rt_camera c)
 		up = create_vector(1, 0, 0);
 	else
 	{
-		aux = cross_product(create_vector(0, 1, 0), c.orientation);
-		up = cross_product(c.orientation, aux);
+		aux = crossp(create_vector(0, 1, 0), c.orientation);
+		up = crossp(c.orientation, aux);
 	}
-	transformation = view_transform(c.view_point, c.orientation, up);
-	set_camera_transformation(camera, transformation);
+	transform = view_transform(c.view_point, c.orientation, up);
+	set_camera_transformation(camera, transform);
 }
 
 static void	setup_lights(t_list **lights, t_rt_scene *s)

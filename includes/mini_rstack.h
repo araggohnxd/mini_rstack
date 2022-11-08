@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:51:31 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:07:49 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ t_bool		is_tuple(t_tuple t);
 t_tuple		sum_tuple(t_tuple a, t_tuple b);
 t_tuple		sub_tuple(t_tuple a, t_tuple b);
 t_tuple		neg_tuple(t_tuple t);
-t_tuple		scalar_multiply_tuple(t_tuple t, double m);
-t_tuple		scalar_divide_tuple(t_tuple t, double d);
+t_tuple		smul_tuple(t_tuple t, double m);
+t_tuple		sdiv_tuple(t_tuple t, double d);
 
 /* Tuple manipulators */
-double		dot_product(t_tuple a, t_tuple b);
+double		dotp(t_tuple a, t_tuple b);
 double		magnitude(t_tuple t);
 t_tuple		normalize(t_tuple t);
-t_tuple		cross_product(t_tuple a, t_tuple b);
+t_tuple		crossp(t_tuple a, t_tuple b);
 
 /************************************ COLOR ***********************************/
 
@@ -51,8 +51,8 @@ t_color		create_formatted_color(double r, double g, double b);
 /* Color operations */
 t_color		sum_color(t_color a, t_color b);
 t_color		sub_color(t_color a, t_color b);
-t_color		multiply_color(t_color a, t_color b);
-t_color		scalar_multiply_color(t_color a, double multiplier);
+t_color		mul_color(t_color a, t_color b);
+t_color		smul_color(t_color a, double m);
 
 /* Color patterns */
 t_pattern	create_pattern(t_color a, t_color b);
@@ -86,8 +86,8 @@ double		cofactor(t_matrix m, size_t row, size_t col);
 t_bool		is_equal_matrix(t_matrix a, t_matrix b);
 
 /* Matrix operations */
-t_matrix	multiply_matrix(t_matrix a, t_matrix b);
-t_tuple		multiply_matrix_tuple(t_matrix m, t_tuple t);
+t_matrix	mul_matrix(t_matrix a, t_matrix b);
+t_tuple		mul_matrix_tuple(t_matrix m, t_tuple t);
 t_matrix	transpose_matrix(t_matrix m);
 t_matrix	inverse_matrix(t_matrix m);
 
@@ -129,7 +129,7 @@ t_shape		*create_cylinder(void);
 t_shape		*create_cone(void);
 
 /* Shape setters */
-void		set_shape_transformation(t_shape *s, t_matrix transformation);
+void		set_shape_transformation(t_shape *s, t_matrix transform);
 
 /* Shape intersections */
 void		intersect_sphere(t_shape *sphere, t_ray ray, t_intersect **head);

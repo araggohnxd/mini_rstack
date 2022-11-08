@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:55:37 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 18:56:00 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:04:39 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_camera	create_camera(double h_size, double v_size, double field_of_view)
 	camera.h_size = h_size;
 	camera.v_size = v_size;
 	camera.pixel_size = (camera.half_width * 2) / h_size;
-	camera.transformation = create_identity_matrix();
-	camera.inverse_transformation = create_identity_matrix();
+	camera.transform = create_identity_matrix();
+	camera.inverse_transform = create_identity_matrix();
 	return (camera);
 }

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:36:11 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	set_sphere_transformation(t_shape *sphere)
 			sphere->sphere.diameter,
 			sphere->sphere.diameter,
 			sphere->sphere.diameter);
-	set_shape_transformation(sphere, multiply_matrix(trans, scale));
+	set_shape_transformation(sphere, mul_matrix(trans, scale));
 }
 
 static int	set_sphere_diameter(char *token, t_shape *sphere)

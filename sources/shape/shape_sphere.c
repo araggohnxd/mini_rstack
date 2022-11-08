@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:32:25 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 17:27:24 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:34:14 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static t_bhaskara	get_delta_value(t_ray ray, t_vector sphere_to_ray)
 {
 	t_bhaskara	_;
 
-	_.a = dot_product(ray.direction, ray.direction);
-	_.b = dot_product(ray.direction, sphere_to_ray) * 2;
-	_.c = dot_product(sphere_to_ray, sphere_to_ray) - 1;
+	_.a = dotp(ray.direction, ray.direction);
+	_.b = dotp(ray.direction, sphere_to_ray) * 2;
+	_.c = dotp(sphere_to_ray, sphere_to_ray) - 1;
 	_.delta = (_.b * _.b) - (4 * _.a * _.c);
 	return (_);
 }

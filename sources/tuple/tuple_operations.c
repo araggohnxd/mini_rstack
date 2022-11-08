@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:48:59 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 12:54:54 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:33:59 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ t_tuple	neg_tuple(t_tuple t)
 	return (create_tuple(-t.x, -t.y, -t.z, -t.w));
 }
 
-t_tuple	scalar_multiply_tuple(t_tuple t, double m)
+t_tuple	smul_tuple(t_tuple t, double m)
 {
 	return (create_tuple((t.x * m), (t.y * m), (t.z * m), (t.w * m)));
 }
 
-t_tuple	scalar_divide_tuple(t_tuple t, double d)
+t_tuple	sdiv_tuple(t_tuple t, double d)
 {
 	return (create_tuple((t.x / d), (t.y / d), (t.z / d), (t.w / d)));
 }

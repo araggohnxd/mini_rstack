@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:25 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 16:13:21 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:34:49 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	set_light_color(char *token, t_lgt_point *lp, t_rt_scene *s)
 	|| !ft_isinrange_f(aux[2], 0, 255))
 		return (error(ERR_LGT_COLOR_RANGE));
 	tmp = create_formatted_color(aux[0], aux[1], aux[2]);
-	lp->intensity = scalar_multiply_color(tmp, s->brightness);
+	lp->intensity = smul_color(tmp, s->brightness);
 	return (0);
 }
 

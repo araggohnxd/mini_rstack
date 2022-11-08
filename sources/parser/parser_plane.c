@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:23:28 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:36:40 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	set_plane_transformation(t_shape *plane)
 			plane->plane.position.y,
 			plane->plane.position.z);
 	rotat = full_rotation_matrix(plane->orientation);
-	set_shape_transformation(plane, multiply_matrix(trans, rotat));
+	set_shape_transformation(plane, mul_matrix(trans, rotat));
 }
 
 static int	set_plane_coordinates(char *token, t_shape *plane)

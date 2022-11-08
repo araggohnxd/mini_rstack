@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 18:54:17 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	set_cone_transformation(t_shape *cone)
 			cone->cone.position.z);
 	rotat = full_rotation_matrix(cone->orientation);
 	scale = scale_matrix(cone->cone.diameter, 1, cone->cone.diameter);
-	final = multiply_matrix(multiply_matrix(trans, rotat), scale);
+	final = mul_matrix(mul_matrix(trans, rotat), scale);
 	set_shape_transformation(cone, final);
 }
 

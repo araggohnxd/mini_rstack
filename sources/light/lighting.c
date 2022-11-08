@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:27:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 02:28:30 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:34:49 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_vector	reflect(t_vector in, t_vector normal)
 	t_vector	scalar;
 	t_vector	reflection;
 
-	scalar = scalar_multiply_tuple(normal, (dot_product(in, normal) * 2));
+	scalar = smul_tuple(normal, (dotp(in, normal) * 2));
 	reflection = sub_tuple(in, scalar);
 	return (reflection);
 }
@@ -26,30 +26,27 @@ static t_color	get_specular(t_lgt_attr attr, t_vector lightv, double light_dot)
 {
 	t_vector	reflectv;
 	t_color		specular;
-	t_color		aux;
 	double		reflect_dot;
+	double		factor;
 
 	if (light_dot < 0)
 		return (create_color(0, 0, 0));
 	reflectv = reflect(neg_tuple(lightv), attr.normal);
-	reflect_dot = dot_product(reflectv, attr.camera);
+	reflect_dot = dotp(reflectv, attr.camera);
 	if (reflect_dot <= 0)
 		return (create_color(0, 0, 0));
-	aux = scalar_multiply_color(attr.lp.intensity, attr.material.specular);
-	specular = \
-	scalar_multiply_color(aux, pow(reflect_dot, attr.material.shininess));
+	factor = pow(reflect_dot, attr.material.shininess);
+	specular = smul_color(attr.lp.intensity, (attr.material.specular * factor));
 	return (specular);
 }
 
 static t_color	get_diffuse(t_color eff, double light_dot, double m_diffuse)
 {
-	t_color	aux;
 	t_color	diffuse;
 
 	if (light_dot < 0)
 		return (create_color(0, 0, 0));
-	aux = scalar_multiply_color(eff, m_diffuse);
-	diffuse = scalar_multiply_color(aux, light_dot);
+	diffuse = smul_color(eff, light_dot * m_diffuse);
 	return (diffuse);
 }
 
@@ -60,8 +57,8 @@ static t_color	get_lighting(t_lgt_attr attr, t_color eff, t_vector lightv)
 	t_color	specular;
 	double	light_dot;
 
-	light_dot = dot_product(lightv, attr.normal);
-	ambient = multiply_color(eff, attr.material.ambient);
+	light_dot = dotp(lightv, attr.normal);
+	ambient = mul_color(eff, attr.material.ambient);
 	diffuse = get_diffuse(eff, light_dot, attr.material.diffuse);
 	specular = get_specular(attr, lightv, light_dot);
 	return (sum_color(ambient, sum_color(diffuse, specular)));
@@ -77,9 +74,9 @@ t_color	lighting(t_lgt_attr attr)
 		color = get_pattern(attr.material.pattern, attr.position, attr.shape);
 	else
 		color = attr.material.color;
-	eff = multiply_color(color, attr.lp.intensity);
+	eff = mul_color(color, attr.lp.intensity);
 	if (attr.in_shadow)
-		return (multiply_color(eff, attr.material.ambient));
+		return (mul_color(eff, attr.material.ambient));
 	lightv = normalize(sub_tuple(attr.lp.position, attr.position));
 	return (get_lighting(attr, eff, lightv));
 }

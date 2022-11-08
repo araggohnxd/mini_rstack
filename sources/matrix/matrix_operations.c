@@ -6,13 +6,13 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:50:58 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 13:54:03 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mini_rstack.h>
 
-t_matrix	multiply_matrix(t_matrix a, t_matrix b)
+t_matrix	mul_matrix(t_matrix a, t_matrix b)
 {
 	size_t	row;
 	size_t	col;
@@ -41,7 +41,7 @@ t_matrix	multiply_matrix(t_matrix a, t_matrix b)
 	return (create_matrix(a.size, m));
 }
 
-t_tuple	multiply_matrix_tuple(t_matrix m, t_tuple t)
+t_tuple	mul_matrix_tuple(t_matrix m, t_tuple t)
 {
 	size_t	row;
 	double	aux[MAT_MAX];

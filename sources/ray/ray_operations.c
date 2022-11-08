@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:08:48 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 15:26:21 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:43:06 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_point	get_position(t_ray r, double t)
 {
-	return (sum_tuple(r.origin, scalar_multiply_tuple(r.direction, t)));
+	return (sum_tuple(r.origin, smul_tuple(r.direction, t)));
 }
 
 t_intersect	*get_hit(t_intersect *xs)

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:50:53 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 22:39:39 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:17:32 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 t_vector	normal_at(t_shape *s, t_point p)
 {
-	t_vector	world_normal;
-	t_vector	object_normal;
-	t_point		object_point;
+	t_vector	w_normal;
+	t_vector	s_normal;
+	t_point		s_point;
 
-	object_point = multiply_matrix_tuple(s->inverse_transformation, p);
-	object_normal = s->get_normal(s, object_point);
-	world_normal = multiply_matrix_tuple(s->transposed_inverse, object_normal);
-	world_normal.w = VECTOR_W;
-	world_normal = normalize(world_normal);
-	return (world_normal);
+	s_point = mul_matrix_tuple(s->inverse_transform, p);
+	s_normal = s->get_normal(s, s_point);
+	w_normal = mul_matrix_tuple(s->inverse_transpose_transform, s_normal);
+	w_normal.w = VECTOR_W;
+	w_normal = normalize(w_normal);
+	return (w_normal);
 }
 
 t_comps	prepare_computation(t_intersect *i, t_ray ray)
@@ -35,11 +35,9 @@ t_comps	prepare_computation(t_intersect *i, t_ray ray)
 	comps.point = get_position(ray, comps.t);
 	comps.camera = neg_tuple(ray.direction);
 	comps.normal = normal_at(comps.shape, comps.point);
-	if (dot_product(comps.normal, comps.camera) < 0)
+	if (dotp(comps.normal, comps.camera) < 0)
 		comps.normal = neg_tuple(comps.normal);
-	comps.overpoint = sum_tuple(
-			comps.point,
-			scalar_multiply_tuple(comps.normal, EPSILON));
+	comps.overpoint = sum_tuple(comps.point, smul_tuple(comps.normal, EPSILON));
 	return (comps);
 }
 
@@ -47,14 +45,14 @@ void	intersect_world(t_world world, t_ray ray, t_intersect **head)
 {
 	t_shape	*current_shape;
 	t_list	*shapes;
-	t_ray	transformed;
+	t_ray	transform;
 
 	shapes = world.shapes;
 	while (shapes)
 	{
 		current_shape = (t_shape *)shapes->content;
-		transformed = transform_ray(ray, current_shape->inverse_transformation);
-		current_shape->intersect(current_shape, transformed, head);
+		transform = transform_ray(ray, current_shape->inverse_transform);
+		current_shape->intersect(current_shape, transform, head);
 		shapes = shapes->next;
 	}
 }

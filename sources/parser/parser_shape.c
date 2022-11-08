@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:44:26 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 18:19:51 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ int	set_shape_material(t_shape *shape, t_rt_scene *s)
 {
 	if (!s->ambient)
 		return (error(ERR_SHP_MISS_INFO));
-	shape->material.ambient = \
-	scalar_multiply_color(s->ambient->color, s->ambient->ratio);
+	shape->material.ambient = smul_color(s->ambient->color, s->ambient->ratio);
 	return (0);
 }

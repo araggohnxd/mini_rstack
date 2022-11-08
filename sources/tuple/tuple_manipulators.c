@@ -6,13 +6,13 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:56:16 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 12:59:41 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:34:21 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mini_rstack.h>
 
-double	dot_product(t_tuple a, t_tuple b)
+double	dotp(t_tuple a, t_tuple b)
 {
 	return (
 		(a.x * b.x) + \
@@ -24,7 +24,7 @@ double	dot_product(t_tuple a, t_tuple b)
 
 double	magnitude(t_tuple t)
 {
-	return (sqrt(dot_product(t, t)));
+	return (sqrt(dotp(t, t)));
 }
 
 t_tuple	normalize(t_tuple t)
@@ -39,7 +39,7 @@ t_tuple	normalize(t_tuple t)
 	);
 }
 
-t_tuple	cross_product(t_tuple a, t_tuple b)
+t_tuple	crossp(t_tuple a, t_tuple b)
 {
 	return (create_vector(
 			((a.y * b.z) - (a.z * b.y)),

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:37:01 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	set_cylinder_transformation(t_shape *cyl)
 			cyl->cylinder.position.z);
 	rotat = full_rotation_matrix(cyl->orientation);
 	scale = scale_matrix(cyl->cylinder.diameter, 1, cyl->cylinder.diameter);
-	final = multiply_matrix(multiply_matrix(trans, rotat), scale);
+	final = mul_matrix(mul_matrix(trans, rotat), scale);
 	set_shape_transformation(cyl, final);
 }
 
