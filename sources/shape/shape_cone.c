@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:21:02 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 18:56:24 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:35:43 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,15 @@ void	intersect_cone(t_shape *cone, t_ray ray, t_intersect **head)
 t_vector	get_cone_normal(t_shape *cone, t_point point)
 {
 	double	distance;
+	double	radius;
 	double	y;
 
 	distance = (point.x * point.x) + (point.z * point.z);
-	if (distance < 1 && point.y >= (cone->cone.max - EPSILON))
+	radius = cone->cone.max * cone->cone.max;
+	if (distance < radius && point.y >= (cone->cone.max - EPSILON))
 		return (create_vector(0, 1, 0));
-	if (distance < 1 && point.y <= (cone->cone.min + EPSILON))
+	radius = cone->cone.min * cone->cone.min;
+	if (distance < radius && point.y <= (cone->cone.min + EPSILON))
 		return (create_vector(0, -1, 0));
 	y = sqrt(distance);
 	if (point.y > 0)
