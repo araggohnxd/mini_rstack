@@ -61,8 +61,6 @@ OBJECT_PATH			:= objects
 OBJECT_FILES		:= $(SOURCE_FILES:%.c=$(OBJECT_PATH)/%.o)
 OBJECT_FILES		+= $(PRINTF_FILES:%.c=$(OBJECT_PATH)/%.o)
 
-TEST_PATH			:= tests
-
 vpath				%.c $(SOURCE_PATH)
 vpath				%.h $(HEADER_PATH)
 
@@ -94,20 +92,11 @@ $(OBJECT_PATH):
 					mkdir -p $@
 
 clean:
-					make -C $(TEST_PATH) clean
 					$(REMOVE) $(OBJECT_PATH)
 
 fclean:				clean
-					make -C $(TEST_PATH) fclean
 					$(REMOVE) $(NAME) $(SO)
 
 re:					fclean all
-					make -C $(TEST_PATH) re
 
-test:				all
-					make -C $(TEST_PATH)
-
-vgtest:				all
-					make -C $(TEST_PATH) vg
-
-.PHONY:				all clean fclean re so test vgtest
+.PHONY:				all clean fclean re so
