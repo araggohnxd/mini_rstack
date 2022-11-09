@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:09:28 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static int	set_cone_diameter(char *token, t_shape *cone)
 	cone->cone.diameter = ft_atof(token);
 	if (cone->cone.diameter <= 0)
 		return (error(ERR_CON_DMTER_RANGE));
-	cone->cone.diameter /= 2;
 	return (0);
 }
 
