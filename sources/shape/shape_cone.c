@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:21:02 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 19:35:43 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:53:21 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,11 @@ void	intersect_cone(t_shape *cone, t_ray ray, t_intersect **head)
 
 	intersect_caps(cone, ray, head);
 	_ = get_delta_value(ray);
-	if (is_equal_double(0, _.a) && is_equal_double(0, _.b))
+	if ((is_equal_double(0, _.a) && is_equal_double(0, _.b)) || _.delta < 0)
 		return ;
 	if (is_equal_double(0, _.a))
 		return (intersection_sorted_insert(
 				head, create_intersection((-_.c / (2 * _.b)), cone)));
-	if (_.delta < 0)
-		return ;
 	x[0] = (-_.b - sqrt(_.delta)) / (2 * _.a);
 	x[1] = (-_.b + sqrt(_.delta)) / (2 * _.a);
 	y[0] = ray.origin.y + (x[0] * ray.direction.y);

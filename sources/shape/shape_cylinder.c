@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:17:21 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 18:37:14 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:50:11 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ void	intersect_cylinder(t_shape *cyl, t_ray ray, t_intersect **head)
 
 	intersect_caps(cyl, ray, head);
 	_ = get_delta_value(ray);
-	if (is_equal_double(0, _.a))
-		return ;
-	if (_.delta < 0)
+	if (is_equal_double(0, _.a) || _.delta < 0)
 		return ;
 	x[0] = (-_.b - sqrt(_.delta)) / (2 * _.a);
 	x[1] = (-_.b + sqrt(_.delta)) / (2 * _.a);
