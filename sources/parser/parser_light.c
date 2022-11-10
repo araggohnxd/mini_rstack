@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:25 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 17:34:49 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 09:48:34 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ static int	set_light_color(char *token, t_lgt_point *lp, t_rt_scene *s)
 	aux[1] = ft_atoi(rgb[1]);
 	aux[2] = ft_atoi(rgb[2]);
 	ft_free_matrix((void *)&rgb);
-	if (!ft_isinrange_f(aux[0], 0, 255) \
-	|| !ft_isinrange_f(aux[1], 0, 255) \
-	|| !ft_isinrange_f(aux[2], 0, 255))
+	if (check_rgb_values(aux[0], aux[1], aux[2]) != 0)
 		return (error(ERR_LGT_COLOR_RANGE));
 	tmp = create_formatted_color(aux[0], aux[1], aux[2]);
 	lp->intensity = smul_color(tmp, s->brightness);

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:27:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 17:34:49 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:06:22 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_color	lighting(t_lgt_attr attr)
 	t_vector	lightv;
 
 	if (attr.material.has_pattern)
-		color = get_pattern(attr.material.pattern, attr.position, attr.shape);
+		color = pattern_at(attr.material.pattern, attr.position, attr.shape);
 	else
 		color = attr.material.color;
 	eff = mul_color(color, attr.lp.intensity);

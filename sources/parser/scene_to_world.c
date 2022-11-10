@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:18:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 18:21:21 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 00:33:51 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static void	setup_shapes(t_list **shapes, t_rt_scene *s)
 	while (shape_list)
 	{
 		current_shape = (t_shape *)shape_list->content;
-		set_shape_material(current_shape, s);
+		current_shape->material.ambient = smul_color(
+				s->ambient->color, s->ambient->ratio);
 		shape_list = shape_list->next;
 	}
 	*shapes = s->shapes;

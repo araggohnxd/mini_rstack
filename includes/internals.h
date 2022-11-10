@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 18:06:05 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:15:06 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,17 @@ typedef enum e_shape_id
 	ID_CONE
 }	t_shape_id;
 
+typedef struct s_uv
+{
+	double	u;
+	double	v;
+}	t_uv;
+
 typedef struct s_pattern
 {
-	t_color		color_a;
-	t_color		color_b;
-	t_matrix	transform;
-	t_matrix	inverse_transform;
+	double		width;
+	double		height;
+	t_color		colors[2];
 }	t_pattern;
 
 typedef struct s_material
@@ -172,7 +177,8 @@ typedef struct s_shape
 	t_matrix	inverse_transform;
 	t_matrix	inverse_transpose_transform;
 	t_material	material;
-	t_vector	(*get_normal)(struct s_shape *, t_point);
+	t_vector	(*normal_at)(struct s_shape *, t_point);
+	t_uv		(*uvmap)(t_point);
 	void		(*intersect)(struct s_shape *, t_ray, t_intersect **);
 }	t_shape;
 

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:13:34 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 18:05:26 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:14:51 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ t_shape	*create_sphere(void)
 	sphere->sphere.diameter = 1;
 	sphere->sphere.center = create_point(0, 0, 0);
 	sphere->material = create_material();
-	sphere->get_normal = get_sphere_normal;
+	sphere->normal_at = normal_at_sphere;
 	sphere->intersect = intersect_sphere;
+	sphere->uvmap = map_sphere;
+	sphere->material.pattern.width = 16;
+	sphere->material.pattern.height = 8;
 	return (sphere);
 }
 
@@ -53,7 +56,10 @@ t_shape	*create_plane(void)
 	plane->material.specular = .05;
 	plane->plane.position = create_vector(0, 1, 0);
 	plane->intersect = intersect_plane;
-	plane->get_normal = get_plane_normal;
+	plane->normal_at = normal_at_plane;
+	plane->uvmap = map_plane;
+	plane->material.pattern.width = 4;
+	plane->material.pattern.height = 4;
 	return (plane);
 }
 
@@ -70,7 +76,10 @@ t_shape	*create_cylinder(void)
 	cylinder->cylinder.max = INFINITY;
 	cylinder->cylinder.capped = TRUE;
 	cylinder->intersect = intersect_cylinder;
-	cylinder->get_normal = get_cylinder_normal;
+	cylinder->normal_at = normal_at_cylinder;
+	cylinder->uvmap = map_cylinder;
+	cylinder->material.pattern.width = 16;
+	cylinder->material.pattern.height = 8;
 	return (cylinder);
 }
 
@@ -87,6 +96,9 @@ t_shape	*create_cone(void)
 	cone->cone.max = INFINITY;
 	cone->cone.capped = TRUE;
 	cone->intersect = intersect_cone;
-	cone->get_normal = get_cone_normal;
+	cone->normal_at = normal_at_cone;
+	cone->uvmap = map_cone;
+	cone->material.pattern.width = 16;
+	cone->material.pattern.height = 8;
 	return (cone);
 }

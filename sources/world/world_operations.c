@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:50:53 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 18:17:32 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:14:51 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_vector	normal_at(t_shape *s, t_point p)
 	t_point		s_point;
 
 	s_point = mul_matrix_tuple(s->inverse_transform, p);
-	s_normal = s->get_normal(s, s_point);
+	s_normal = s->normal_at(s, s_point);
 	w_normal = mul_matrix_tuple(s->inverse_transpose_transform, s_normal);
 	w_normal.w = VECTOR_W;
 	w_normal = normalize(w_normal);

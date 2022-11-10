@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:14 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 15:29:56 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:01:45 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static int	set_camera_field_of_view(char *token, t_rt_scene *s)
 
 static int	set_camera_orientation_vector(char *token, t_rt_scene *s)
 {
-	char		**vect;
-	double		aux[3];
+	char	**vect;
+	double	aux[3];
 
 	vect = ft_split(token, ',');
 	if (!vect || ft_splitsize(vect) != 3)

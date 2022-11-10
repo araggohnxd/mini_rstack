@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:32:25 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 17:34:14 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:13:32 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	intersect_sphere(t_shape *sphere, t_ray ray, t_intersect **head)
 		intersection_sorted_insert(head, create_intersection(x[1], sphere));
 }
 
-t_vector	get_sphere_normal(t_shape *sphere, t_point point)
+t_vector	normal_at_sphere(t_shape *sphere, t_point point)
 {
 	t_vector	normal;
 

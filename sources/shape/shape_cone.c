@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:21:02 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/09 10:53:21 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:14:08 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ static t_bhaskara	get_delta_value(t_ray ray)
 {
 	t_bhaskara	_;
 
-	_.a = pow(ray.direction.x, 2);
-	_.a -= pow(ray.direction.y, 2);
-	_.a += pow(ray.direction.z, 2);
-	_.b = (2 * ray.origin.x * ray.direction.x);
-	_.b -= (2 * ray.origin.y * ray.direction.y);
-	_.b += (2 * ray.origin.z * ray.direction.z);
-	_.c = pow(ray.origin.x, 2);
-	_.c -= pow(ray.origin.y, 2);
-	_.c += pow(ray.origin.z, 2);
+	_.a = ray.direction.x * ray.direction.x;
+	_.a -= ray.direction.y * ray.direction.y;
+	_.a += ray.direction.z * ray.direction.z;
+	_.b = ray.origin.x * ray.direction.x * 2;
+	_.b -= ray.origin.y * ray.direction.y * 2;
+	_.b += ray.origin.z * ray.direction.z * 2;
+	_.c = ray.origin.x * ray.origin.x;
+	_.c -= ray.origin.y * ray.origin.y;
+	_.c += ray.origin.z * ray.origin.z;
 	_.delta = (_.b * _.b) - (4 * _.a * _.c);
 	return (_);
 }
@@ -77,7 +77,7 @@ void	intersect_cone(t_shape *cone, t_ray ray, t_intersect **head)
 			intersection_sorted_insert(head, create_intersection(x[1], cone));
 }
 
-t_vector	get_cone_normal(t_shape *cone, t_point point)
+t_vector	normal_at_cone(t_shape *cone, t_point point)
 {
 	double	distance;
 	double	radius;

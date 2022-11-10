@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:23:28 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/09 23:05:03 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	parse_plane(char **tokens, t_rt_scene *s)
 	if (set_shape_color(tokens[3], plane) != 0)
 		return (free(plane), -1);
 	set_plane_transformation(plane);
-	if (set_shape_checkerboard(tokens, plane, 4) != 0)
+	if (tokens[4] && set_shape_checkerboard(tokens, plane, 4) != 0)
 		return (free(plane), -1);
 	if (set_shape_linked_list_node(plane, s) != 0)
 		return (free(plane), -1);

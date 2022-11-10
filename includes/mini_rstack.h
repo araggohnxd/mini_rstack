@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 18:07:49 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:14:08 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,14 @@ t_color		mul_color(t_color a, t_color b);
 t_color		smul_color(t_color a, double m);
 
 /* Color patterns */
-t_pattern	create_pattern(t_color a, t_color b);
-t_color		pattern_at(t_pattern pattern, t_point point);
-t_color		get_pattern(t_pattern pattern, t_point point, t_shape *shape);
-void		set_pattern_transformation(t_pattern *pattern, t_matrix transform);
+t_color		pattern_at(t_pattern pattern, t_point point, t_shape *shape);
+t_pattern	uv_checkers(double width, double height, t_color a, t_color b);
+
+/* Color mapping */
+t_uv		map_sphere(t_point point);
+t_uv		map_plane(t_point point);
+t_uv		map_cylinder(t_point point);
+t_uv		map_cone(t_point point);
 
 /*********************************** CANVAS ***********************************/
 
@@ -138,10 +142,10 @@ void		intersect_plane(t_shape *plane, t_ray ray, t_intersect **head);
 void		intersect_cone(t_shape *cone, t_ray ray, t_intersect **head);
 
 /* Shape normal */
-t_vector	get_sphere_normal(t_shape *sphere, t_point point);
-t_vector	get_cylinder_normal(t_shape *cyl, t_point point);
-t_vector	get_plane_normal(t_shape *plane, t_point point);
-t_vector	get_cone_normal(t_shape *cone, t_point point);
+t_vector	normal_at_sphere(t_shape *sphere, t_point point);
+t_vector	normal_at_cylinder(t_shape *cyl, t_point point);
+t_vector	normal_at_plane(t_shape *plane, t_point point);
+t_vector	normal_at_cone(t_shape *cone, t_point point);
 
 /************************************ LIGHT ***********************************/
 
@@ -195,7 +199,6 @@ int			parse_cone(char **tokens, t_rt_scene *s);
 /* Parser setters */
 int			set_shape_color(char *token, t_shape *shape);
 int			set_shape_orientation_vector(char *token, t_shape *shape);
-int			set_shape_material(t_shape *shape, t_rt_scene *s);
 int			set_shape_checkerboard(char **tokens, t_shape *shape, int offset);
 int			set_shape_linked_list_node(t_shape *shape, t_rt_scene *s);
 
@@ -203,6 +206,7 @@ int			set_shape_linked_list_node(t_shape *shape, t_rt_scene *s);
 int			check_user_input(int argc);
 int			check_file_extension(char *filename);
 int			check_scene_elements(t_rt_scene *s);
+int			check_rgb_values(double r, double g, double b);
 int			check_vector_normalization(double x, double y, double z);
 
 /* Utils */

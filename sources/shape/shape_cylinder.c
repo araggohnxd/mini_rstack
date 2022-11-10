@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:17:21 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/09 10:50:11 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:13:59 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static t_bhaskara	get_delta_value(t_ray ray)
 {
 	t_bhaskara	_;
 
-	_.a = pow(ray.direction.x, 2);
-	_.a += pow(ray.direction.z, 2);
-	_.b = 2 * ray.origin.x * ray.direction.x;
-	_.b += 2 * ray.origin.z * ray.direction.z;
-	_.c = pow(ray.origin.x, 2) + pow(ray.origin.z, 2) - 1;
+	_.a = ray.direction.x * ray.direction.x;
+	_.a += ray.direction.z * ray.direction.z;
+	_.b = ray.origin.x * ray.direction.x * 2;
+	_.b += ray.origin.z * ray.direction.z * 2;
+	_.c = (ray.origin.x * ray.origin.x) + (ray.origin.z * ray.origin.z) - 1;
 	_.delta = (_.b * _.b) - (4 * _.a * _.c);
 	return (_);
 }
@@ -70,7 +70,7 @@ void	intersect_cylinder(t_shape *cyl, t_ray ray, t_intersect **head)
 			intersection_sorted_insert(head, create_intersection(x[1], cyl));
 }
 
-t_vector	get_cylinder_normal(t_shape *cyl, t_point point)
+t_vector	normal_at_cylinder(t_shape *cyl, t_point point)
 {
 	double	distance;
 

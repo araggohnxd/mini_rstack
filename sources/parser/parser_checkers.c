@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:46:58 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/06 16:13:35 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/09 23:08:27 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,15 @@ int	check_scene_elements(t_rt_scene *s)
 int	check_vector_normalization(double x, double y, double z)
 {
 	if (!is_equal_double(1, magnitude(create_vector(x, y, z))))
+		return (-1);
+	return (0);
+}
+
+int	check_rgb_values(double r, double g, double b)
+{
+	if (!ft_isinrange_f(r, 0, 255) \
+	|| !ft_isinrange_f(g, 0, 255) \
+	|| !ft_isinrange_f(b, 0, 255))
 		return (-1);
 	return (0);
 }
