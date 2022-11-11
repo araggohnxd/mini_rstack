@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 14:44:07 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:30:28 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,7 @@ int			check_vector_normalization(double x, double y, double z);
 /* Utils */
 int			error(const char *warning);
 double		radians(double degrees);
+void		destroy_shape(void *content);
 void		destroy_scene(t_rt_scene *scene);
 void		destroy_minirt(t_rt_scene *scene, t_minirt *rt);
 void		destroy_mlx(void);

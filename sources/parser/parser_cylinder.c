@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 11:02:41 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:35:49 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ int	parse_cylinder(char **tokens, t_rt_scene *s)
 		return (free(cylinder), -1);
 	if (set_shape_color(tokens[5], cylinder) != 0)
 		return (free(cylinder), -1);
-	set_cylinder_transformation(cylinder);
 	if (set_shape_pattern(tokens, cylinder, 6) != 0)
 		return (free(cylinder), -1);
+	set_cylinder_transformation(cylinder);
 	if (set_shape_linked_list_node(cylinder, s) != 0)
-		return (free(cylinder), -1);
+		return (destroy_shape(cylinder), -1);
 	return (0);
 }

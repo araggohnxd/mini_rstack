@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:23:28 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 11:02:46 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:35:53 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ int	parse_plane(char **tokens, t_rt_scene *s)
 		return (free(plane), -1);
 	if (set_shape_color(tokens[3], plane) != 0)
 		return (free(plane), -1);
-	set_plane_transformation(plane);
 	if (set_shape_pattern(tokens, plane, 4) != 0)
 		return (free(plane), -1);
+	set_plane_transformation(plane);
 	if (set_shape_linked_list_node(plane, s) != 0)
-		return (free(plane), -1);
+		return (destroy_shape(plane), -1);
 	return (0);
 }

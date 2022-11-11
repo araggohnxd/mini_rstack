@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 11:02:50 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:35:59 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ int	parse_sphere(char **tokens, t_rt_scene *s)
 		return (free(sphere), -1);
 	set_sphere_transformation(sphere);
 	if (set_shape_linked_list_node(sphere, s) != 0)
-		return (free(sphere), -1);
+		return (destroy_shape(sphere), -1);
 	return (0);
 }
