@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:16:54 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:00:02 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,7 @@
 #define ERR_SHP_COLOR_SETTN "Invalid shape color settings."
 #define ERR_SHP_COLOR_VALUE "Invalid shape color value."
 #define ERR_SHP_COLOR_RANGE "Shape color channels must be between 0 and 255."
-#define ERR_SHP_INVALID_FEAT "Invalid shape feature."
-#define ERR_SHP_CHECKER_SETTN "Invalid checkerboard color settings."
-#define ERR_SHP_CHECKER_VALUE "Invalid checkerboard color value."
-#define ERR_SHP_CHECKER_RANGE "Invalid checkerboard color range."
-#define ERR_SHP_CHECKER_COLOR "Checkerboard requires a color feature."
 #define ERR_SHP_NOT_NORMALIZED "Shape orientation vector is not normalized."
-
-int	set_shape_checkerboard(char **tokens, t_shape *shape, int offset)
-{
-	char		**rgb;
-	int			aux[3];
-	t_color		color;
-
-	if (ft_strcmp(tokens[offset], "checkerboard") != 0)
-		return (error(ERR_SHP_INVALID_FEAT));
-	if (!tokens[offset + 1])
-		return (error(ERR_SHP_CHECKER_COLOR));
-	rgb = ft_split(tokens[offset + 1], ',');
-	if (!rgb || ft_splitsize(rgb) != 3)
-		return (ft_free_matrix((void *)&rgb), error(ERR_SHP_CHECKER_SETTN));
-	if (!ft_isnumber(rgb[0]) || !ft_isnumber(rgb[1]) || !ft_isnumber(rgb[2]))
-		return (ft_free_matrix((void *)&rgb), error(ERR_SHP_CHECKER_VALUE));
-	aux[0] = ft_atoi(rgb[0]);
-	aux[1] = ft_atoi(rgb[1]);
-	aux[2] = ft_atoi(rgb[2]);
-	ft_free_matrix((void *)&rgb);
-	if (check_rgb_values(aux[0], aux[1], aux[2]) != 0)
-		return (error(ERR_SHP_CHECKER_RANGE));
-	color = create_formatted_color(aux[0], aux[1], aux[2]);
-	shape->material.pattern = uv_checkers(
-			shape->material.pattern.width, shape->material.pattern.height,
-			shape->material.color, color);
-	shape->material.has_pattern = TRUE;
-	return (0);
-}
 
 int	set_shape_linked_list_node(t_shape *shape, t_rt_scene *s)
 {

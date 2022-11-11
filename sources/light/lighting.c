@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:27:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:06:22 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 10:42:16 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,10 @@ t_color	lighting(t_lgt_attr attr)
 	t_color		color;
 	t_vector	lightv;
 
-	if (attr.material.has_pattern)
-		color = pattern_at(attr.material.pattern, attr.position, attr.shape);
+	if (attr.material.pattern.type == PAT_CHECKERS)
+		color = pattern_at(attr.position, attr.shape);
+	else if (attr.material.pattern.type == PAT_BUMPMAP)
+		color = bump_at(attr.position, attr.shape);
 	else
 		color = attr.material.color;
 	eff = mul_color(color, attr.lp.intensity);

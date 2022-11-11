@@ -27,7 +27,7 @@ SOURCE_FILES		+= world_constructor.c world_destructor.c world_operations.c
 SOURCE_FILES		+= camera_constructor.c camera_setter.c render.c parser.c
 SOURCE_FILES		+= parser_ambient.c parser_camera.c parser_error.c parser_shape.c
 SOURCE_FILES		+= parser_sphere.c parser_plane.c parser_cylinder.c parser_cone.c
-SOURCE_FILES		+= parser_light.c parser_checkers.c scene_to_world.c
+SOURCE_FILES		+= parser_light.c parser_checkers.c parser_pattern.c scene_to_world.c
 
 OBJECT_PATH			:= ./objects
 OBJECT_FILES		:= $(SOURCE_FILES:%.c=$(OBJECT_PATH)/%.o)

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:15:06 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:24:27 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,20 @@ typedef struct s_uv
 	double	v;
 }	t_uv;
 
+typedef enum e_pattern_id
+{
+	PAT_NONE,
+	PAT_CHECKERS,
+	PAT_BUMPMAP
+}	t_pattern_id;
+
 typedef struct s_pattern
 {
-	double		width;
-	double		height;
-	t_color		colors[2];
+	t_pattern_id	type;
+	t_color			colors[2];
+	int				width;
+	int				height;
+	t_canvas		canvas;
 }	t_pattern;
 
 typedef struct s_material
@@ -135,7 +144,6 @@ typedef struct s_material
 	double		specular;
 	double		shininess;
 	t_pattern	pattern;
-	t_bool		has_pattern;
 }	t_material;
 
 typedef struct s_sphere

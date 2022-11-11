@@ -6,14 +6,12 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:46:58 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/09 23:08:27 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/10 10:46:29 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mini_rstack.h>
 
-#define ERR_NO_EXT "Given file has no extension."
-#define ERR_WRONG_EXT "Given file has wrong extension."
 #define ERR_UNDEF_AMB "Undefined ambient."
 #define ERR_UNDEF_CAM "Undefined camera."
 #define ERR_UNDEF_LGT "At least one light spot is required."
@@ -33,15 +31,15 @@ int	check_user_input(int argc)
 	return (0);
 }
 
-int	check_file_extension(char *filename)
+int	check_file_extension(const char *filename, const char *expected)
 {
 	char	*extension;
 
 	extension = ft_strrchr(filename, '.');
 	if (!extension)
-		return (error(ERR_NO_EXT));
-	else if (ft_strcmp(".rt", extension) != 0)
-		return (error(ERR_WRONG_EXT));
+		return (-1);
+	else if (ft_strcmp(expected, extension) != 0)
+		return (-1);
 	return (0);
 }
 

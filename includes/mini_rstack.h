@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:14:08 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:44:07 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ t_color		mul_color(t_color a, t_color b);
 t_color		smul_color(t_color a, double m);
 
 /* Color patterns */
-t_color		pattern_at(t_pattern pattern, t_point point, t_shape *shape);
+t_color		pattern_at(t_point point, t_shape *shape);
+t_color		bump_at(t_point point, t_shape *shape);
 t_pattern	uv_checkers(double width, double height, t_color a, t_color b);
 
 /* Color mapping */
@@ -68,7 +69,7 @@ t_uv		map_cone(t_point point);
 
 /* Canvas operations */
 void		write_to_canvas(t_canvas *canvas, int x, int y, int color);
-int			pixel_at(t_canvas *canvas, int x, int y);
+int			pixel_at(t_pattern pattern, int x, int y);
 
 /* Canvas constructor */
 int			create_canvas(t_canvas *c, double width, double height);
@@ -199,12 +200,12 @@ int			parse_cone(char **tokens, t_rt_scene *s);
 /* Parser setters */
 int			set_shape_color(char *token, t_shape *shape);
 int			set_shape_orientation_vector(char *token, t_shape *shape);
-int			set_shape_checkerboard(char **tokens, t_shape *shape, int offset);
 int			set_shape_linked_list_node(t_shape *shape, t_rt_scene *s);
+int			set_shape_pattern(char **tokens, t_shape *shape, int offset);
 
 /* Checkers */
 int			check_user_input(int argc);
-int			check_file_extension(char *filename);
+int			check_file_extension(const char *filename, const char *expected);
 int			check_scene_elements(t_rt_scene *s);
 int			check_rgb_values(double r, double g, double b);
 int			check_vector_normalization(double x, double y, double z);

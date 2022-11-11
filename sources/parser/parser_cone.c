@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:21:44 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:52:23 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static int	set_cone_height(char *token, t_shape *cone)
 	half = height / 2;
 	cone->cone.min = -half;
 	cone->cone.max = half;
+	cone->cone.diameter /= height;
 	return (0);
 }
 
@@ -100,7 +101,7 @@ int	parse_cone(char **tokens, t_rt_scene *s)
 	if (set_shape_color(tokens[5], cone) != 0)
 		return (free(cone), -1);
 	set_cone_transformation(cone);
-	if (tokens[6] && set_shape_checkerboard(tokens, cone, 6) != 0)
+	if (set_shape_pattern(tokens, cone, 6) != 0)
 		return (free(cone), -1);
 	if (set_shape_linked_list_node(cone, s) != 0)
 		return (free(cone), -1);
