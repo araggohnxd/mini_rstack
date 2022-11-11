@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:59:33 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 15:24:37 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:23:09 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ static int	set_shape_bump_map(char **tokens, t_shape *shape, int offset)
 	return (0);
 }
 
+static void	set_shape_checkerboard_size(t_shape *shape)
+{
+	if (shape->type == ID_CYLINDER)
+		shape->material.pattern.width *= shape->cylinder.diameter * 2;
+	else if (shape->type == ID_CONE)
+		shape->material.pattern.width *= shape->cone.diameter * 3;
+}
+
 static int	set_shape_checkerboard(char **tokens, t_shape *shape, int offset)
 {
 	char	**rgb;
@@ -71,6 +79,7 @@ static int	set_shape_checkerboard(char **tokens, t_shape *shape, int offset)
 			shape->material.pattern.height,
 			shape->material.color, color);
 	shape->material.pattern.type = PAT_CHECKERS;
+	set_shape_checkerboard_size(shape);
 	return (0);
 }
 

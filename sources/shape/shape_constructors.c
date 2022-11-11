@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:13:34 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:14:51 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:08:55 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_shape	*create_cylinder(void)
 	cylinder->normal_at = normal_at_cylinder;
 	cylinder->uvmap = map_cylinder;
 	cylinder->material.pattern.width = 16;
-	cylinder->material.pattern.height = 8;
+	cylinder->material.pattern.height = 4;
 	return (cylinder);
 }
 
@@ -98,7 +98,7 @@ t_shape	*create_cone(void)
 	cone->intersect = intersect_cone;
 	cone->normal_at = normal_at_cone;
 	cone->uvmap = map_cone;
-	cone->material.pattern.width = 16;
+	cone->material.pattern.width = 8;
 	cone->material.pattern.height = 8;
 	return (cone);
 }
