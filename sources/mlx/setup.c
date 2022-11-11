@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:38:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:48:35 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:26:05 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	setup_visual_environment(t_minirt *rt)
 		rt->canvas.image,
 		0, 0);
 	mlx_hook(rt->window, KeyPress, KeyPressMask, keypress_handler, rt);
+	mlx_hook(rt->window, Expose, ExposureMask, expose_canvas, rt);
 	mlx_hook(rt->window, DestroyNotify, NoEventMask, end_program, rt);
 	mlx_loop(get_mlx()->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 17:30:28 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:26:57 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,7 @@ void		setup_visual_environment(t_minirt *rt);
 
 /* Hooks */
 int			end_program(t_minirt *rt);
+int			expose_canvas(t_minirt *rt);
 int			keypress_handler(int keysym, t_minirt *rt);
 
 #endif /* MINI_RSTACK_H */

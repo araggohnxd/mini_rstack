@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:38:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/07 12:50:51 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:27:23 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,15 @@ int	keypress_handler(int keysym, t_minirt *rt)
 {
 	if (keysym == XK_Escape || keysym == XK_q)
 		end_program(rt);
+	return (0);
+}
+
+int	expose_canvas(t_minirt *rt)
+{
+	mlx_put_image_to_window(
+		get_mlx()->mlx,
+		rt->window,
+		rt->canvas.image,
+		0, 0);
 	return (0);
 }
