@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 15:24:27 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/11 19:59:45 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ typedef struct s_tuple
 	double	w;
 }	t_tuple;
 
-typedef t_tuple	t_vector;	/* w = 0 */
-typedef t_tuple	t_point;	/* w = 1 */
+typedef t_tuple				t_vector;	/* w = 0 */
+typedef t_tuple				t_point;	/* w = 1 */
 
 typedef struct s_color
 {
@@ -166,7 +166,7 @@ typedef struct s_cylinder
 	t_bool	capped;
 }	t_cylinder;
 
-typedef t_cylinder	t_cone;
+typedef t_cylinder			t_cone;
 
 typedef struct s_intersect	t_intersect;
 
@@ -287,6 +287,6 @@ typedef struct s_minirt
 	void		*window;
 }	t_minirt;
 
-typedef int	t_delegator(char **tokens, t_rt_scene *s);
+typedef int					t_delegator(char **tokens, t_rt_scene *s);
 
 #endif /* INTERNALS_H */
