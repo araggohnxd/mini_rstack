@@ -1,0 +1,11 @@
+# earth and moon
+
+A	.2	255,255,255
+
+C	-7.655521,7.948789,-10.159220	0.510368,-0.529919,0.677281	50
+
+L	-2.067777,12.189029,-11.052233	0.8	140,140,140
+
+sp	0,0,0 		5		0,0,0	bumpmap assets/xpm_maps/earth.xpm
+sp	5.7,.9,0	.5		0,0,0	bumpmap	assets/xpm_maps/moon.xpm
+sp	0,0,0 		50		0,0,0	bumpmap assets/xpm_maps/milkyway.xpm
