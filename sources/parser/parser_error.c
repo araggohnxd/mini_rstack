@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 22:22:09 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:35:01 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:10:11 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	error(const char *warning)
 		ft_dprintf(STDERR, ERROR "miniRT: %s: line %d: %s.\n",
 			filename, line_number, warning);
 	else
-		ft_dprintf(STDERR, ERROR "miniRT: %s\n.", warning);
+		ft_dprintf(STDERR, ERROR "miniRT: %s.\n", warning);
 	return (-1);
 }

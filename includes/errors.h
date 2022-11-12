@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:04:44 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:37:53 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:11:16 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,17 @@
 
 /************************************ ERROR ***********************************/
 
-# define ERROR "\e[0;31mError\e[0m\n"
+# define ERROR        "\e[0;31mError\e[0m\n"
+# define USAGE        "Usage: ./miniRT <map file>.rt"
+# define ERR_MANY_ARG "Too many arguments"
+# define ERR_FEW_ARG  "Too few arguments"
+
+/************************************* MLX ************************************/
+
+# define ERR_MLX_DISPLAY    "Unable to create MLX display"
+# define ERR_MLX_WINDOW     "Unable to create MLX window"
+# define ERR_MLX_IMAGE      "Unable to create MLX image"
+# define ERR_MLX_IMAGE_DATA "Unable to retrieve MLX image's data"
 
 /*********************************** RT FILE **********************************/
 

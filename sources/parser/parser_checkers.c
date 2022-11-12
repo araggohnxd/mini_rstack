@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:46:58 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:11:14 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:08:17 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	check_user_input(int argc)
 	if (argc != 2)
 	{
 		if (argc > 2)
-			error("miniRT: too many arguments");
+			error(ERR_MANY_ARG);
 		if (argc < 2)
-			error("miniRT: too few arguments");
-		error("usage: ./miniRT <map file>.rt");
+			error(ERR_FEW_ARG);
+		ft_putendl_fd(USAGE, STDERR);
 		return (-1);
 	}
 	return (0);

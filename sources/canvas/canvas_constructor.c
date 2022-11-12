@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:19:36 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:05:53 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	create_canvas(t_canvas *c, double width, double height)
 			(int)round(width),
 			(int)round(height));
 	if (!c->image)
-		return (error("Unable to create MLX image."));
+		return (error(ERR_MLX_IMAGE));
 	c->address = mlx_get_data_addr(
 			c->image,
 			&c->bits_per_pixel,
@@ -28,7 +28,7 @@ int	create_canvas(t_canvas *c, double width, double height)
 	if (!c->address)
 	{
 		mlx_destroy_image(get_mlx()->mlx, c->image);
-		return (error("Unable to retrieve MLX image's data."));
+		return (error(ERR_MLX_IMAGE_DATA));
 	}
 	return (0);
 }
