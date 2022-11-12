@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 15:22:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:11:52 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:32:04 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	read_rt_file(char *filename, t_rt_scene *s)
 	while (TRUE)
 	{
 		current_line = ft_gnl(file_descriptor, FALSE);
+		line_tracker(filename)->line_number++;
 		if (!current_line)
 			break ;
 		if (!*current_line || *current_line == '#')

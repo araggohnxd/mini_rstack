@@ -6,12 +6,16 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:04:44 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:14:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:37:53 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
+
+/************************************ ERROR ***********************************/
+
+# define ERROR "\e[0;31mError\e[0m\n"
 
 /*********************************** RT FILE **********************************/
 
@@ -111,7 +115,8 @@
 # define ERR_PAT_INVALID_FEAT  "Invalid shape feature"
 # define ERR_PAT_CHECKER_SETTN "Invalid checkerboard color settings"
 # define ERR_PAT_CHECKER_VALUE "Invalid checkerboard color value"
-# define ERR_PAT_CHECKER_RANGE "Invalid checkerboard color range"
+# define ERR_PAT_CHECKER_RANGE "Checkerboard \
+color channels must be between 0 and 255"
 # define ERR_PAT_CHECKER_COLOR "Checkerboard requires a color feature"
 # define ERR_PAT_BUMPMAP_NOXPM "Bump map requires a path to a '.xpm' file"
 # define ERR_PAT_BUMPMAP_NOEXT "Bump map file must have '.xpm' extension"

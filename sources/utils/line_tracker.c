@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_error.c                                     :+:      :+:    :+:   */
+/*   line_tracker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 22:22:09 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:35:01 by maolivei         ###   ########.fr       */
+/*   Created: 2022/11/12 15:18:15 by maolivei          #+#    #+#             */
+/*   Updated: 2022/11/12 15:31:37 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-int	error(const char *warning)
+t_line	*line_tracker(const char *filename)
 {
-	const size_t	line_number = line_tracker(NULL)->line_number;
-	const char		*filename = line_tracker(NULL)->filename;
+	static t_line	line_number;
 
-	if (line_number != 0)
-		ft_dprintf(STDERR, ERROR "miniRT: %s: line %d: %s.\n",
-			filename, line_number, warning);
-	else
-		ft_dprintf(STDERR, ERROR "miniRT: %s\n.", warning);
-	return (-1);
+	if (filename)
+		line_number.filename = filename;
+	return (&line_number);
 }

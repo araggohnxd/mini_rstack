@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:10:53 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:31:55 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,7 @@ void		destroy_shape(void *content);
 void		destroy_scene(t_rt_scene *scene);
 void		destroy_minirt(t_rt_scene *scene, t_minirt *rt);
 void		destroy_mlx(void);
+t_line		*line_tracker(const char *filename);
 
 /************************************* MLX ************************************/
 

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 14:20:52 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:40:43 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,6 +286,12 @@ typedef struct s_minirt
 	t_world		world;
 	void		*window;
 }	t_minirt;
+
+typedef struct s_line
+{
+	size_t		line_number;
+	const char	*filename;
+}	t_line;
 
 typedef int					t_delegator(char **tokens, t_rt_scene *s);
 
