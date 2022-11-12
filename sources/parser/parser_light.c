@@ -6,22 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:25 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 09:48:34 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:29 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_LGT_LINKED_LIST "Unable to allocate memory for light list node."
-#define ERR_LGT_MALLOC_FAIL "Unable to allocate memory for light."
-#define ERR_LGT_BAD_CONFIGS "Invalid light configuration."
-#define ERR_LGT_POINT_SETTN "Invalid light point settings."
-#define ERR_LGT_POINT_VALUE "Invalid light point value."
-#define ERR_LGT_BRGHT_VALUE "Invalid light brightness value."
-#define ERR_LGT_BRGHT_RANGE "Light brightness must be between 0 and 1."
-#define ERR_LGT_COLOR_SETTN "Invalid light color settings."
-#define ERR_LGT_COLOR_VALUE "Invalid light color value."
-#define ERR_LGT_COLOR_RANGE "Light color channels must be between 0 and 255."
+#include <minirt.h>
 
 static int	set_light_color(char *token, t_lgt_point *lp, t_rt_scene *s)
 {

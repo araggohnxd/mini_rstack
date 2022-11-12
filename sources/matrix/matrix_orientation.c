@@ -6,11 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:34:41 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 17:37:07 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
+#include <minirt.h>
 
 /* It is MANDATORY to multiply Z by X, not X by Z. */
 

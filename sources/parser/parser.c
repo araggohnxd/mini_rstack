@@ -6,15 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 15:22:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 11:07:35 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:52 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_BAD_ID    "Invalid identifier in .rt file."
-#define ERR_BAD_EXT   "Scene description file must have '.rt' extension."
-#define ERR_OPEN_FAIL "Could not open .rt file"
+#include <minirt.h>
 
 static t_delegator	*get_parse_function(t_parse_id id)
 {

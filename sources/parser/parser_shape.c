@@ -6,21 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 11:00:02 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:45 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_SHP_MISS_INFO "Not enough information available."
-#define ERR_SHP_LINKED_LIST "Unable to allocate memory for cylinder list node."
-#define ERR_SHP_OVECT_SETTN "Invalid shape orientation vector settings."
-#define ERR_SHP_OVECT_VALUE "Invalid shape orientation vector value."
-#define ERR_SHP_OVECT_RANGE "Shape orientation values must be between -1 and 1."
-#define ERR_SHP_COLOR_SETTN "Invalid shape color settings."
-#define ERR_SHP_COLOR_VALUE "Invalid shape color value."
-#define ERR_SHP_COLOR_RANGE "Shape color channels must be between 0 and 255."
-#define ERR_SHP_NOT_NORMALIZED "Shape orientation vector is not normalized."
+#include <minirt.h>
 
 int	set_shape_linked_list_node(t_shape *shape, t_rt_scene *s)
 {

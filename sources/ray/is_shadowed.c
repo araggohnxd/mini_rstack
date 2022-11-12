@@ -6,11 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:41:08 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 18:41:54 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
+#include <minirt.h>
 
 t_bool	_is_shadowed(t_world world, t_ray ray, double distance)
 {

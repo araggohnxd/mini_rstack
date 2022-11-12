@@ -1,7 +1,7 @@
-NAME				:= mini_rstack
+NAME				:= miniRT
 
 HEADER_PATH			:= ./includes
-HEADER_FILES		:= mini_rstack.h internals.h
+HEADER_FILES		:= minirt.h internals.h errors.h
 
 LIBS				:= ./libs
 LIBFT_PATH			:= $(LIBS)/libft

@@ -6,11 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:27:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 10:42:16 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
+#include <minirt.h>
 
 static t_vector	reflect(t_vector in, t_vector normal)
 {

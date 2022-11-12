@@ -6,11 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:55:04 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/05 13:57:17 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
+#include <minirt.h>
 
 static double	_2x2_determinant(t_matrix m)
 {

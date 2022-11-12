@@ -6,11 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:04:53 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/08 18:07:49 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
+#include <minirt.h>
 
 void	set_shape_transformation(t_shape *s, t_matrix transform)
 {

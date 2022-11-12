@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_rstack.h                                      :+:      :+:    :+:   */
+/*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 19:26:57 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:10:53 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_RSTACK_H
-# define MINI_RSTACK_H
+#ifndef MINIRT_H
+# define MINIRT_H
 
 # include <internals.h>
+# include <errors.h>
 
 /************************************ TUPLE ***********************************/
 
@@ -229,4 +230,4 @@ int			end_program(t_minirt *rt);
 int			expose_canvas(t_minirt *rt);
 int			keypress_handler(int keysym, t_minirt *rt);
 
-#endif /* MINI_RSTACK_H */
+#endif /* MINIRT_H */

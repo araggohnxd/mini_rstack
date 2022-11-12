@@ -6,21 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:01:39 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 17:35:49 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:23 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_CYL_MALLOC_FAIL "Unable to allocate memory for cylinder."
-#define ERR_CYL_LINKED_LIST "Unable to allocate memory for cylinder list node."
-#define ERR_CYL_BAD_CONFIGS "Invalid cylinder configuration."
-#define ERR_CYL_COORD_SETTN "Invalid cylinder coordinates settings."
-#define ERR_CYL_COORD_VALUE "Invalid cylinder coordinates value."
-#define ERR_CYL_DMTER_VALUE "Invalid cylinder diameter value."
-#define ERR_CYL_DMTER_RANGE "Cylinder diameter value must be greater than 0."
-#define ERR_CYL_HEIGHT_VALUE "Invalid cylinder height value."
-#define ERR_CYL_HEIGHT_RANGE "Cylinder height value must be greater than 0."
+#include <minirt.h>
 
 static void	set_cylinder_transformation(t_shape *cyl)
 {

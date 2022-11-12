@@ -6,23 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:14 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:01:45 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:10 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_CAM_MALLOC_FAIL "Unable to allocate memory for camera."
-#define ERR_CAM_ALREADY_SET "Camera must be set only once."
-#define ERR_CAM_BAD_CONFIGS "Invalid camera configuration."
-#define ERR_CAM_VIEWP_SETTN "Invalid camera view point settings."
-#define ERR_CAM_VIEWP_VALUE "Invalid camera view point value."
-#define ERR_CAM_OVECT_SETTN "Invalid camera orientation vector settings."
-#define ERR_CAM_OVECT_VALUE "Invalid camera orientation vector value."
-#define ERR_CAM_OVECT_RANGE "Camera orietation values must be between -1 and 1."
-#define ERR_CAM_FIELD_VALUE "Invalid camera field of view value."
-#define ERR_CAM_FIELD_RANGE "Camera field of view must be between 0 and 180."
-#define ERR_CAM_NOT_NORMALIZED "Camera orientation vector is not normalized."
+#include <minirt.h>
 
 static int	set_camera_field_of_view(char *token, t_rt_scene *s)
 {

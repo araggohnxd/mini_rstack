@@ -6,17 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 18:23:28 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 17:35:53 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:41 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_PLN_MALLOC_FAIL "Unable to allocate memory for plane."
-#define ERR_PLN_LINKED_LIST "Unable to allocate memory for plane list node."
-#define ERR_PLN_BAD_CONFIGS "Invalid plane configuration."
-#define ERR_PLN_COORD_SETTN "Invalid plane coordinates settings."
-#define ERR_PLN_COORD_VALUE "Invalid plane coordinates value."
+#include <minirt.h>
 
 static void	set_plane_transformation(t_shape *plane)
 {

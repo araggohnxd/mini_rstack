@@ -52,7 +52,7 @@ Mkfile.old
 dkms.conf
 
 # Custom files
-mini_rstack
+miniRT
 .normignore
 
 # Custom directories

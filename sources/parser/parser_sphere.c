@@ -6,19 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:16:40 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 17:35:59 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:49 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_SPH_MALLOC_FAIL "Unable to allocate memory for sphere."
-#define ERR_SPH_LINKED_LIST "Unable to allocate memory for sphere list node."
-#define ERR_SPH_BAD_CONFIGS "Invalid sphere configuration."
-#define ERR_SPH_CENTR_SETTN "Invalid sphere center coordinates settings."
-#define ERR_SPH_CENTR_VALUE "Invalid sphere center coordinates value."
-#define ERR_SPH_DMTER_VALUE "Invalid sphere diameter value."
-#define ERR_SPH_DMTER_RANGE "Sphere diameter value must be greater than 0."
+#include <minirt.h>
 
 static void	set_sphere_transformation(t_shape *sphere)
 {

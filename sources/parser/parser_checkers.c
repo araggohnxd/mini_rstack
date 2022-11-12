@@ -6,16 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:46:58 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 10:46:29 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:14 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_UNDEF_AMB "Undefined ambient."
-#define ERR_UNDEF_CAM "Undefined camera."
-#define ERR_UNDEF_LGT "At least one light spot is required."
-#define ERR_UNDEF_OBJ "At least one object is required."
+#include <minirt.h>
 
 int	check_user_input(int argc)
 {

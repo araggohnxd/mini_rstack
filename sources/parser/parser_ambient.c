@@ -6,20 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 15:25:20 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/10 09:48:24 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:06 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_AMB_MALLOC_FAIL "Unable to allocate memory for ambient."
-#define ERR_AMB_ALREADY_SET "Ambient lighting must be set only once."
-#define ERR_AMB_BAD_CONFIGS "Invalid ambient configuration."
-#define ERR_AMB_RATIO_VALUE "Invalid ambient lighting ratio value."
-#define ERR_AMB_RATIO_RANGE "Ambient lighting ratio must be between 0 and 1."
-#define ERR_AMB_COLOR_SETTN "Invalid ambient color settings."
-#define ERR_AMB_COLOR_VALUE "Invalid ambient color value."
-#define ERR_AMB_COLOR_RANGE "Ambient color channels must be between 0 and 255."
+#include <minirt.h>
 
 static int	set_ambient_color(char *token, t_rt_scene *s)
 {

@@ -6,20 +6,11 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:59:33 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 17:23:09 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:11:37 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mini_rstack.h>
-
-#define ERR_PAT_INVALID_FEAT  "Invalid shape feature."
-#define ERR_PAT_CHECKER_SETTN "Invalid checkerboard color settings."
-#define ERR_PAT_CHECKER_VALUE "Invalid checkerboard color value."
-#define ERR_PAT_CHECKER_RANGE "Invalid checkerboard color range."
-#define ERR_PAT_CHECKER_COLOR "Checkerboard requires a color feature."
-#define ERR_PAT_BUMPMAP_NOXPM "Bump map requires a path to a '.xpm' file."
-#define ERR_PAT_BUMPMAP_NOEXT "Bump map file must have '.xpm' extension."
-#define ERR_PAT_BUMPMAP_IMAGE "Unable to create bump map image."
+#include <minirt.h>
 
 static int	set_shape_bump_map(char **tokens, t_shape *shape, int offset)
 {

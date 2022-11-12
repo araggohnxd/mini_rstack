@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/11 19:59:45 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:20:52 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #  define M_PI_2 1.57079632679489661923	/* π / 2 */
 # endif
 
-# define NAME "mini_rstack"
+# define NAME "miniRT"
 # define RT_WIDTH 1366
 # define RT_HEIGHT 768
 
