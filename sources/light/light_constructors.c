@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:19:15 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/13 13:51:46 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_lgt_point	*create_light_point(t_point position, t_color intensity)
 	return (light_point);
 }
 
-t_lgt_attr	create_light_attr(t_lgt_point lp, t_pos_attr pos, t_material m)
+t_lgt_attr	create_light_attr(t_lgt_point *lp, t_pos_attr pos, t_material m)
 {
 	t_lgt_attr	attributes;
 

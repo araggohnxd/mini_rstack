@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 15:08:48 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:05:19 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,22 @@ t_intersect	*get_hit(t_intersect *xs)
 	return (NULL);
 }
 
-t_color	shade_hit(t_world world, t_comps comps, t_list *lights)
+t_color	shade_hit(t_world world, t_comps comps)
 {
 	t_lgt_attr	light_attr;
 	t_pos_attr	pos_attr;
 	t_color		color;
+	t_list		*lights;
 
 	color = create_color(0, 0, 0);
 	pos_attr = create_pos_attr(comps.camera, comps.normal, comps.overpoint);
+	lights = world.lights;
 	while (lights)
 	{
 		light_attr = create_light_attr(
-				*(t_lgt_point *)lights->content,
-				pos_attr,
-				comps.shape->material);
+				lights->content, pos_attr, comps.shape->material);
 		light_attr.in_shadow = is_shadowed(
-				world, comps.overpoint, *(t_lgt_point *)lights->content);
+				world, comps.overpoint, lights->content);
 		light_attr.shape = comps.shape;
 		color = sum_color(color, lighting(light_attr));
 		lights = lights->next;
@@ -67,7 +67,7 @@ t_color	color_at(t_world world, t_ray ray)
 		return (create_color(0, 0, 0));
 	}
 	comps = prepare_computation(hit, ray);
-	color = shade_hit(world, comps, world.lights);
+	color = shade_hit(world, comps);
 	intersection_list_clear(&xs);
 	return (color);
 }

@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:20:57 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:31:55 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:05:30 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ t_ray		transform_ray(t_ray r, t_matrix m);
 /* Ray operations */
 t_point		get_position(t_ray r, double t);
 t_intersect	*get_hit(t_intersect *xs);
-t_color		shade_hit(t_world world, t_comps comps, t_list *lights);
-t_bool		is_shadowed(t_world world, t_point point, t_lgt_point lp);
+t_color		shade_hit(t_world world, t_comps comps);
+t_bool		is_shadowed(t_world world, t_point point, t_lgt_point *lp);
 t_color		color_at(t_world world, t_ray ray);
 
 /* Intersection list handlers */
@@ -158,7 +158,7 @@ t_color		lighting(t_lgt_attr attr);
 t_material	create_material(void);
 t_pos_attr	create_pos_attr(t_vector camera, t_vector normal, t_point pos);
 t_lgt_point	*create_light_point(t_point position, t_color intensity);
-t_lgt_attr	create_light_attr(t_lgt_point lp, t_pos_attr pos, t_material m);
+t_lgt_attr	create_light_attr(t_lgt_point *lp, t_pos_attr pos, t_material m);
 
 /************************************ WORLD ***********************************/
 

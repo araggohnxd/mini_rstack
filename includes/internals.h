@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:21:03 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 15:40:43 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/13 13:51:40 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ typedef struct s_position_attributes
 
 typedef struct s_light_attributes
 {
-	t_lgt_point	lp;
+	t_lgt_point	*lp;
 	t_shape		*shape;
 	t_vector	camera;
 	t_vector	normal;

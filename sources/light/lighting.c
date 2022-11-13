@@ -6,7 +6,7 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:27:05 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/13 13:52:44 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_color	get_specular(t_lgt_attr attr, t_vector lightv, double light_dot)
 	if (reflect_dot <= 0)
 		return (create_color(0, 0, 0));
 	factor = pow(reflect_dot, attr.material.shininess);
-	specular = smul_color(attr.lp.intensity, (attr.material.specular * factor));
+	specular = smul_color(attr.lp->intensity, attr.material.specular * factor);
 	return (specular);
 }
 
@@ -76,9 +76,9 @@ t_color	lighting(t_lgt_attr attr)
 		color = bump_at(attr.position, attr.shape);
 	else
 		color = attr.material.color;
-	eff = mul_color(color, attr.lp.intensity);
+	eff = mul_color(color, attr.lp->intensity);
 	if (attr.in_shadow)
 		return (mul_color(eff, attr.material.ambient));
-	lightv = normalize(sub_tuple(attr.lp.position, attr.position));
+	lightv = normalize(sub_tuple(attr.lp->position, attr.position));
 	return (get_lighting(attr, eff, lightv));
 }

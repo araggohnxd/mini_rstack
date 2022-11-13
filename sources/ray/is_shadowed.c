@@ -6,13 +6,13 @@
 /*   By: maolivei <maolivei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 18:41:08 by maolivei          #+#    #+#             */
-/*   Updated: 2022/11/12 14:22:12 by maolivei         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:08:12 by maolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minirt.h>
 
-t_bool	_is_shadowed(t_world world, t_ray ray, double distance)
+static t_bool	_is_shadowed(t_world world, t_ray ray, double distance)
 {
 	t_intersect	*xs;
 	t_intersect	*hit;
@@ -26,14 +26,14 @@ t_bool	_is_shadowed(t_world world, t_ray ray, double distance)
 	return (in_shadow);
 }
 
-t_bool	is_shadowed(t_world world, t_point point, t_lgt_point lp)
+t_bool	is_shadowed(t_world world, t_point point, t_lgt_point *lp)
 {
 	t_tuple		aux;
 	t_ray		ray;
 	t_vector	direction;
 	double		distance;
 
-	aux = sub_tuple(lp.position, point);
+	aux = sub_tuple(lp->position, point);
 	distance = magnitude(aux);
 	direction = normalize(aux);
 	ray = create_ray(point, direction);
